@@ -1,9 +1,9 @@
 import { Navigate, useRoutes } from 'react-router-dom'
 
-import About from './components/About'
-import Home from './components/Home'
-import Products from './components/Products'
 import Layout from './layouts/Layout'
+import About from './pages/About'
+import Home from './pages/Home'
+import Products from './pages/Products'
 
 function Routes() {
   return useRoutes([
