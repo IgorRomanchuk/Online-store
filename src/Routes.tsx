@@ -4,6 +4,7 @@ import Layout from './layouts/Layout'
 import About from './pages/About'
 import Home from './pages/Home'
 import Products from './pages/Products'
+import ShoppingCart from './pages/ShoppingCart'
 
 function Routes() {
   return useRoutes([
@@ -23,6 +24,10 @@ function Routes() {
         {
           path: 'about',
           element: <About />,
+        },
+        {
+          path: 'cart',
+          element: <ShoppingCart />,
         },
       ],
     },
