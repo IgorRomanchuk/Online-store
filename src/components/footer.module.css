@@ -1,0 +1,26 @@
+.footer {
+  background-color: #95c2da;
+}
+
+.footer > p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
+  color: white;
+  padding: 10px;
+}
+
+.footer > p > span {
+  margin-left: 10px;
+}
+
+.footer > p > span > button {
+  display: flex;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.footer > p > span > button:hover {
+  background-color: rgb(231, 132, 11);
+}
