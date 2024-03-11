@@ -1,0 +1,48 @@
+.productsContainer {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(200px, 1fr));
+  padding-top: 30px;
+  padding-bottom: 30px;
+  gap: 20px;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.cardProduct {
+  background-color: rgb(255 255 255);
+  border-radius: 15px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.imageContainer {
+  padding: 20px;
+  text-align: center;
+}
+
+.title, .price {
+  text-align: left;
+  font-weight: 500;
+}
+
+.title {
+  min-height: 70px;
+}
+
+.button {
+  font-size: 20px;
+  font-weight: 600;
+  width: 200px;
+  padding: 10px 0;
+  background-color: rgb(255 160 44);
+  border-radius: 10px;
+  color: white;
+  margin: 0 auto;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: rgb(247, 179, 96);
+}

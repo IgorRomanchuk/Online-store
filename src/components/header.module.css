@@ -2,12 +2,13 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #95c2da;
+  background-color: rgb(255 160 44);
+  opacity: 0.8;
 }
 
 .title {
   font-weight: 900;
-  color: rgb(231, 132, 11);
+  color: white;
   margin-left: 8rem;
 }
 
@@ -32,6 +33,7 @@
   list-style: none;
   margin-right: 1rem;
   cursor: pointer;
+  font-weight: 600;
 }
 
 .navigation > li > button {
