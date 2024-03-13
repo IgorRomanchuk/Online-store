@@ -13,22 +13,69 @@ const productsSlice = createSlice({
   name: 'products',
   initialState: {
     products: [],
+    category: [],
+    selectedCategories: [],
+    newArr: [],
     status: null,
     error: null,
   },
   reducers: {
-    getProducts(state, action) {
-      return state
+    addSelectedCategory(state, action) {
+      state.selectedCategories.push(action.payload)
+      productsSlice.caseReducers.filterByCategory(state)
+    },
+
+    removeSelectedCategory(state, action) {
+      state.selectedCategories = state.selectedCategories.filter(
+        (item) => item !== action.payload,
+      )
+      productsSlice.caseReducers.filterByCategory(state)
+    },
+    filterProductsByPrice(state, action) {
+      state.products.sort((a, b) =>
+        a.price > b.price
+          ? action.payload.firstValue
+          : action.payload.secondValue,
+      )
+      state.newArr.sort((a, b) =>
+        a.price > b.price
+          ? action.payload.firstValue
+          : action.payload.secondValue,
+      )
+    },
+    filterProductsByRating(state, action) {
+      state.products.sort((a, b) =>
+        a.rating.rate > b.rating.rate
+          ? action.payload.firstValue
+          : action.payload.secondValue,
+      )
+      state.newArr.sort((a, b) =>
+        a.rating.rate > b.rating.rate
+          ? action.payload.firstValue
+          : action.payload.secondValue,
+      )
+    },
+    filterByCategory(state) {
+      state.products = state.newArr.filter((item) =>
+        state.selectedCategories.includes(item.category),
+      )
+      if (!state.products.length) state.products = state.newArr
     },
   },
   extraReducers: (builder) => {
-    builder.addCase(fetchProducts.pending, (state, action) => {
+    builder.addCase(fetchProducts.pending, (state) => {
       state.status = 'loading'
     }),
       builder.addCase(fetchProducts.fulfilled, (state, action) => {
-        console.log(action.payload)
         state.status = 'resolve'
         state.products = action.payload
+        state.newArr = action.payload
+        // add category
+        state.products.map((item) => {
+          if (!state.category.includes(item.category)) {
+            state.category.push(item.category)
+          }
+        })
       })
   },
   // extraReducers: {
@@ -44,6 +91,12 @@ const productsSlice = createSlice({
   // },
 })
 
-export const { getProducts } = productsSlice.actions
+export const {
+  filterProductsByPrice,
+  filterProductsByRating,
+  filterByCategory,
+  addSelectedCategory,
+  removeSelectedCategory,
+} = productsSlice.actions
 
 export default productsSlice.reducer
