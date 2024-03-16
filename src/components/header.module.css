@@ -18,6 +18,7 @@
   font: inherit;
   color: inherit;
   background-color: transparent;
+  cursor: pointer;
 }
 
 .navigation {
@@ -67,4 +68,6 @@
   border-radius: 50%;
   top: 35px;
   right: 30px;
+  cursor: auto;
+  font-size: 20px;
 }

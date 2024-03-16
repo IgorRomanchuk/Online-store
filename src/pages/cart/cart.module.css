@@ -1,0 +1,87 @@
+.container {
+  max-width: 1280px;
+  text-align: left;
+  margin: 0  auto;
+  min-height: calc(100vh - 86px - 76px);
+  display: flex;
+  justify-content: space-between
+}
+.productsContainer {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  width: 600px;
+}
+
+.productsContainer > :last-child {
+  margin-bottom: 0;
+}
+
+.cardProduct {
+  display: flex;
+  background-color: rgb(255 255 255);
+  border-radius: 15px;
+  margin-bottom: 20px;
+}
+
+.imageContainer {
+  padding: 20px;
+  text-align: center;
+}
+
+.title, .price {
+  text-align: left;
+  font-weight: 500;
+}
+
+.title {
+  max-width: 330px;
+}
+
+.changeButtons {
+  display: flex;
+  align-items: center;
+}
+
+.changeButtons > * {
+  padding: 10px;
+}
+
+.purchaseContainer {
+  width: 600px;
+  padding: 30px 0;
+}
+
+.purchaseCard {
+  background-color: rgb(255 255 255);
+  border-radius: 15px;
+  text-align: center;
+}
+
+.purchasePrice {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding-top: 20px;
+}
+
+.button {
+  font-size: 20px;
+  font-weight: 600;
+  width: 200px;
+  padding: 10px 0;
+  background-color: rgb(255 160 44);
+  border-radius: 10px;
+  color: white;
+  margin: 0 auto;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: rgb(247, 179, 96);
+}
+
+.buttonPrice {
+  width: 400px;
+  margin: 20px;
+}

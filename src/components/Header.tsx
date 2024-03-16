@@ -1,11 +1,14 @@
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined'
 import React, { useEffect, useState } from 'react'
+import { UseSelector, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 
 import s from './header.module.css'
 
 const Header = () => {
   const [active, setActive] = useState('')
+
+  const count = useSelector((state: any) => state.cart.cart)
 
   const navigate = useNavigate()
 
@@ -52,20 +55,23 @@ const Header = () => {
               About us
             </button>
           </li>
-          <li className={s.cartContainer}>
-            <button
-              onClick={() => {
-                navigate('/cart')
-                setActive('cart')
-              }}
-            >
+          <li
+            className={s.cartContainer}
+            onClick={() => {
+              navigate('/cart')
+              setActive('cart')
+            }}
+          >
+            <button>
               <ShoppingCartOutlinedIcon
                 style={{
                   color: `${active === 'cart' ? 'black' : 'white'}`,
                 }}
               />
             </button>
-            <div className={s.countProduct}></div>
+            {count.length > 0 && (
+              <div className={s.countProduct}>{count.length}</div>
+            )}
           </li>
         </ul>
       </nav>

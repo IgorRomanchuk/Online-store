@@ -2,9 +2,9 @@ import { Navigate, useRoutes } from 'react-router-dom'
 
 import Layout from './layouts/Layout'
 import About from './pages/About'
+import Cart from './pages/cart/Cart'
 import Home from './pages/Home'
 import Products from './pages/products/Products'
-import ShoppingCart from './pages/ShoppingCart'
 
 function Routes() {
   return useRoutes([
@@ -27,7 +27,7 @@ function Routes() {
         },
         {
           path: 'cart',
-          element: <ShoppingCart />,
+          element: <Cart />,
         },
       ],
     },

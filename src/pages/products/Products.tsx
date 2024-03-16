@@ -4,6 +4,7 @@ import Ratings from 'react-ratings-declarative'
 import { useDispatch, useSelector } from 'react-redux'
 
 import Select from '../../components/common/Select'
+import { addProduct } from '../../store/cartSlice'
 import {
   addSelectedCategory,
   fetchProducts,
@@ -67,7 +68,14 @@ const Products = () => {
                 <p className={s.title}>{item.title}</p>
                 <p className={s.price}>{`${item.price} $`}</p>
               </div>
-              <button className={s.button}>Add to cart</button>
+              <button
+                onClick={() => {
+                  dispatch(addProduct(item))
+                }}
+                className={s.button}
+              >
+                Add to cart
+              </button>
             </div>
           ))}
       </div>
