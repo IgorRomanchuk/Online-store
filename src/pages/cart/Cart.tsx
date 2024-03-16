@@ -64,8 +64,10 @@ const Cart = () => {
           <p className={s.purchasePrice}>Total: {sum ? sum.toFixed(2) : 0} $</p>
           <button
             onClick={() => {
-              setOpen(true)
-              dispatch(refreshCart())
+              if (cart.length) {
+                setOpen(true)
+                dispatch(refreshCart())
+              }
             }}
             className={`${s.button} ${s.buttonPrice}`}
           >
