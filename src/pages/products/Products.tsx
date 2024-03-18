@@ -15,10 +15,10 @@ import s from './products.module.css'
 
 const Products = () => {
   const dispatch: any = useDispatch()
-  const products = useSelector((state: any) => state.products.products)
-  const category = useSelector((state: any) => state.products.category)
-  const status = useSelector((state: any) => state.products.status)
-  const error = useSelector((state: any) => state.products.error)
+
+  const { products, category, status, error } = useSelector(
+    (state: any) => state.products,
+  )
 
   useEffect(() => {
     if (!products.length) dispatch(fetchProducts())
