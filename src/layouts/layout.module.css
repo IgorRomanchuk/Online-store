@@ -4,5 +4,6 @@
   background-size: cover;
   background-position: bottom;
   min-height: calc(100vh - 86px - 76px);
+  position: relative;
 }
 

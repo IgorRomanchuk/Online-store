@@ -16,7 +16,7 @@ const productsSlice = createSlice({
     category: [],
     selectedCategories: [],
     newArr: [],
-    status: null,
+    loading: true,
     error: null,
   },
   reducers: {
@@ -64,10 +64,10 @@ const productsSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder.addCase(fetchProducts.pending, (state) => {
-      state.status = 'loading'
+      state.loading = true
     }),
       builder.addCase(fetchProducts.fulfilled, (state, action) => {
-        state.status = 'resolve'
+        state.loading = false
         state.products = action.payload
         state.newArr = action.payload
         // add category
