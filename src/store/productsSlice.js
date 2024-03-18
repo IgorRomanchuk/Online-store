@@ -2,10 +2,19 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 
 export const fetchProducts = createAsyncThunk(
   'products/fetchProducts',
-  async function () {
+  async function (_, { rejectWithValue }) {
     const response = await fetch('https://fakestoreapi.com/products')
-    const data = await response.json()
-    return data
+
+    try {
+      if (!response.ok) {
+        throw new Error('Server Error!')
+      }
+
+      const data = await response.json()
+      return data
+    } catch (err) {
+      return rejectWithValue(err.message)
+    }
   },
 )
 
@@ -16,7 +25,7 @@ const productsSlice = createSlice({
     category: [],
     selectedCategories: [],
     newArr: [],
-    loading: true,
+    status: null,
     error: null,
   },
   reducers: {
@@ -63,11 +72,13 @@ const productsSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
-    builder.addCase(fetchProducts.pending, (state) => {
-      state.loading = true
-    }),
-      builder.addCase(fetchProducts.fulfilled, (state, action) => {
-        state.loading = false
+    builder
+      .addCase(fetchProducts.pending, (state) => {
+        state.status = 'loading'
+        state.error = null
+      })
+      .addCase(fetchProducts.fulfilled, (state, action) => {
+        state.status = 'resolved'
         state.products = action.payload
         state.newArr = action.payload
         // add category
@@ -76,6 +87,10 @@ const productsSlice = createSlice({
             state.category.push(item.category)
           }
         })
+      })
+      .addCase(fetchProducts.rejected, (state, action) => {
+        state.status = 'rejected'
+        state.error = action.payload
       })
   },
   // extraReducers: {

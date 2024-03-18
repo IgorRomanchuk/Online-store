@@ -17,14 +17,18 @@ const Products = () => {
   const dispatch: any = useDispatch()
   const products = useSelector((state: any) => state.products.products)
   const category = useSelector((state: any) => state.products.category)
-  const loading = useSelector((state: any) => state.products.loading)
+  const status = useSelector((state: any) => state.products.status)
+  const error = useSelector((state: any) => state.products.error)
 
   useEffect(() => {
     if (!products.length) dispatch(fetchProducts())
   }, [])
+  if (error) {
+    return <h1 style={{ marginTop: '100px' }}>An error occed: {error}</h1>
+  }
   return (
     <>
-      {loading ? (
+      {status === 'loading' ? (
         <LinearProgress />
       ) : (
         <div className={s.container}>
