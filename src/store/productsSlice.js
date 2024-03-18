@@ -24,7 +24,7 @@ const productsSlice = createSlice({
     products: [],
     category: [],
     selectedCategories: [],
-    newArr: [],
+    cloneProducts: [],
     status: null,
     error: null,
   },
@@ -46,7 +46,7 @@ const productsSlice = createSlice({
           ? action.payload.firstValue
           : action.payload.secondValue,
       )
-      state.newArr.sort((a, b) =>
+      state.cloneProducts.sort((a, b) =>
         a.price > b.price
           ? action.payload.firstValue
           : action.payload.secondValue,
@@ -58,17 +58,17 @@ const productsSlice = createSlice({
           ? action.payload.firstValue
           : action.payload.secondValue,
       )
-      state.newArr.sort((a, b) =>
+      state.cloneProducts.sort((a, b) =>
         a.rating.rate > b.rating.rate
           ? action.payload.firstValue
           : action.payload.secondValue,
       )
     },
     filterByCategory(state) {
-      state.products = state.newArr.filter((item) =>
+      state.products = state.cloneProducts.filter((item) =>
         state.selectedCategories.includes(item.category),
       )
-      if (!state.products.length) state.products = state.newArr
+      if (!state.products.length) state.products = state.cloneProducts
     },
   },
   extraReducers: (builder) => {
@@ -80,7 +80,7 @@ const productsSlice = createSlice({
       .addCase(fetchProducts.fulfilled, (state, action) => {
         state.status = 'resolved'
         state.products = action.payload
-        state.newArr = action.payload
+        state.cloneProducts = action.payload
         // add category
         state.products.map((item) => {
           if (!state.category.includes(item.category)) {
@@ -93,17 +93,6 @@ const productsSlice = createSlice({
         state.error = action.payload
       })
   },
-  // extraReducers: {
-  // [fetchProducts.pending]: (state) => {
-  //   state.status = 'loading'
-  //   state.error = null
-  // },
-  // [fetchProducts.fulfilled]: (state, action) => {
-  //   state.status = 'resolve'
-  //   state.products = action.payload
-  // },
-  // [fetchProducts.rejected]: (state, action) => {},
-  // },
 })
 
 export const {
