@@ -45,16 +45,6 @@ const Header = () => {
               Products
             </button>
           </li>
-          <li style={{ color: `${active === 'about' ? 'black' : 'white'}` }}>
-            <button
-              onClick={() => {
-                navigate('/about')
-                setActive('about')
-              }}
-            >
-              About us
-            </button>
-          </li>
           <li
             className={s.cartContainer}
             onClick={() => {
