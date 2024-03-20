@@ -1,4 +1,5 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit'
+import axios from 'axios'
 
 import { Product } from '../types/Product'
 import { ProductsState } from '../types/Product'
@@ -17,14 +18,10 @@ export const fetchProducts = createAsyncThunk<
   undefined,
   { rejectValue: string }
 >('products/fetchProducts', async function (_, { rejectWithValue }) {
-  const response = await fetch('https://fakestoreapi.com/products')
-
-  if (!response.ok) {
-    return rejectWithValue('Server Error!')
-  }
-
-  const data = await response.json()
-  return data
+  return axios
+    .get('https://fakestoreapi.com/products')
+    .then((res) => res.data)
+    .catch((err) => rejectWithValue(err.message))
 })
 
 const productsSlice = createSlice({
