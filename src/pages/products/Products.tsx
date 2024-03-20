@@ -73,7 +73,6 @@ const Products = () => {
                       {[...Array(5)].map((_, i) => (
                         <Ratings.Widget key={i} widgetDimension="20px" />
                       ))}
-                      <Ratings.Widget widgetDimension="20px" />
                     </Ratings>
                     <span style={{ marginLeft: '5px' }}>
                       {item.rating.rate}

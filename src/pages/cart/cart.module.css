@@ -17,6 +17,8 @@
 }
 
 .cardProduct {
+  position: relative;
+
   display: flex;
   background-color: rgb(255 255 255);
   border-radius: 15px;
@@ -33,8 +35,13 @@
   font-weight: 500;
 }
 
+.price {
+  font-size: 18px;
+}
+
 .title {
   max-width: 330px;
+  margin-top: 20px;
 }
 
 .changeButtons {
@@ -44,6 +51,16 @@
 
 .changeButtons > * {
   padding: 10px;
+}
+
+.changeButtons > svg {
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+}
+
+.changeButtons > svg:hover {
+  color: rgb(247, 179, 96);
 }
 
 .purchaseContainer {
@@ -81,7 +98,27 @@
   background-color: rgb(247, 179, 96);
 }
 
-.buttonPrice {
+.priceButton {
   width: 400px;
   margin: 20px;
+}
+
+.closeButton {
+  position: absolute;
+  top: 5%;
+  right: 3%;
+  cursor: pointer;
+}
+
+.count {
+  font-size: 18px;
+}
+
+.closeButton:hover {
+ color: rgb(247, 179, 96);
+}
+
+.closeButton > svg {
+  width: 40px;
+  height: 40px;
 }

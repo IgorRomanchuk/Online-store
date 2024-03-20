@@ -37,26 +37,36 @@ const Cart = () => {
                   width={150}
                 />
               </div>
-              <div>
+              <div
+                style={{
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  flexDirection: 'column',
+                }}
+              >
                 <h3 className={s.title}>{item.title}</h3>
                 <p className={s.price}>{`${item.price} $`}</p>
                 <div className={s.changeButtons}>
                   <RemoveCircleIcon
+                    className={s.addButton}
                     onClick={() =>
                       dispatch(changeCount({ type: 'remove', id: item.id }))
                     }
                   />
                   <p className={s.count}>{item.count}</p>
                   <AddCircleIcon
+                    className={s.removeButton}
                     onClick={() =>
                       dispatch(changeCount({ type: 'add', id: item.id }))
                     }
                   />
                 </div>
               </div>
-              <HighlightOffIcon
-                onClick={() => dispatch(removeProduct({ id: item.id }))}
-              />
+              <button className={s.closeButton}>
+                <HighlightOffIcon
+                  onClick={() => dispatch(removeProduct({ id: item.id }))}
+                />
+              </button>
             </div>
           ))}
       </div>
@@ -70,7 +80,7 @@ const Cart = () => {
                 dispatch(refreshCart())
               }
             }}
-            className={`${s.button} ${s.buttonPrice}`}
+            className={`${s.button} ${s.priceButton}`}
           >
             Purchase
           </button>
