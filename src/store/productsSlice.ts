@@ -1,27 +1,7 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit'
 
-export type Product = {
-  category: string
-  count?: number
-  description: string
-  id: number
-  image: string
-  price: number
-  rating: {
-    rate: number
-    count: number
-  }
-  title: string
-}
-
-type ProductsState = {
-  products: Product[]
-  category: string[]
-  selectedCategories: string[]
-  cloneProducts: Product[]
-  status: string | null
-  error: string | null
-}
+import { Product } from '../types/Product'
+import { ProductsState } from '../types/Product'
 
 const initialState: ProductsState = {
   products: [],

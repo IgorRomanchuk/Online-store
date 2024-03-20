@@ -2,7 +2,6 @@ import AddCircleIcon from '@mui/icons-material/AddCircle'
 import HighlightOffIcon from '@mui/icons-material/HighlightOff'
 import RemoveCircleIcon from '@mui/icons-material/RemoveCircle'
 import { useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
 
 import { useAppDispatch, useAppSelector } from '../../hooks'
 import {
@@ -11,7 +10,7 @@ import {
   removeProduct,
   sumProducts,
 } from '../../store/cartSlice'
-import { Product } from '../../store/productsSlice'
+import { Product } from '../../types/Product'
 import s from './cart.module.css'
 import BasicModal from './modal/Modal'
 

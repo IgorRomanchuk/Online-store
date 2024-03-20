@@ -1,13 +1,9 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
-import { Product } from './productsSlice'
+import { CartState } from '../types/Cart'
+import { Product } from '../types/Product'
 
-type Cart = {
-  cart: Product[]
-  sum: number
-}
-
-const initialState: Cart = {
+const initialState: CartState = {
   cart: JSON.parse(localStorage.getItem('cart') || '[]') || [],
   sum: 0,
 }

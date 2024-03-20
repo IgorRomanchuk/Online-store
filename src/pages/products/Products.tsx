@@ -6,12 +6,12 @@ import Ratings from 'react-ratings-declarative'
 import Select from '../../components/common/Select'
 import { useAppDispatch, useAppSelector } from '../../hooks'
 import { addProduct } from '../../store/cartSlice'
-import { Product } from '../../store/productsSlice'
 import {
   addSelectedCategory,
   fetchProducts,
   removeSelectedCategory,
 } from '../../store/productsSlice'
+import { Product } from '../../types/Product'
 import s from './products.module.css'
 
 const Products = () => {
