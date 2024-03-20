@@ -2,10 +2,11 @@ import { Checkbox, FormControlLabel, FormGroup } from '@mui/material'
 import LinearProgress from '@mui/material/LinearProgress'
 import { useEffect } from 'react'
 import Ratings from 'react-ratings-declarative'
-import { useDispatch, useSelector } from 'react-redux'
 
 import Select from '../../components/common/Select'
+import { useAppDispatch, useAppSelector } from '../../hooks'
 import { addProduct } from '../../store/cartSlice'
+import { Product } from '../../store/productsSlice'
 import {
   addSelectedCategory,
   fetchProducts,
@@ -14,10 +15,10 @@ import {
 import s from './products.module.css'
 
 const Products = () => {
-  const dispatch: any = useDispatch()
+  const dispatch = useAppDispatch()
 
-  const { products, category, status, error } = useSelector(
-    (state: any) => state.products,
+  const { products, category, status, error } = useAppSelector(
+    (state) => state.products,
   )
 
   useEffect(() => {
@@ -40,8 +41,8 @@ const Products = () => {
                   key={item}
                   control={<Checkbox />}
                   label={item}
-                  onClick={(e: any) => {
-                    if (e.target.checked) {
+                  onClick={(e) => {
+                    if ((e.target as HTMLInputElement).checked) {
                       dispatch(addSelectedCategory(item))
                     } else {
                       dispatch(removeSelectedCategory(item))
@@ -53,7 +54,7 @@ const Products = () => {
           </div>
           <div className={s.productsContainer}>
             {products.length &&
-              products.map((item: any) => (
+              products.map((item: Product) => (
                 <div key={item.id} className={s.cardProduct}>
                   <div className={s.imageContainer}>
                     <img

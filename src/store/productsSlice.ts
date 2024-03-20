@@ -1,46 +1,71 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
+import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit'
 
-export const fetchProducts = createAsyncThunk(
-  'products/fetchProducts',
-  async function (_, { rejectWithValue }) {
-    const response = await fetch('https://fakestoreapi.com/products')
+export type Product = {
+  category: string
+  count?: number
+  description: string
+  id: number
+  image: string
+  price: number
+  rating: {
+    rate: number
+    count: number
+  }
+  title: string
+}
 
-    try {
-      if (!response.ok) {
-        throw new Error('Server Error!')
-      }
+type ProductsState = {
+  products: Product[]
+  category: string[]
+  selectedCategories: string[]
+  cloneProducts: Product[]
+  status: string | null
+  error: string | null
+}
 
-      const data = await response.json()
-      return data
-    } catch (err) {
-      return rejectWithValue(err.message)
-    }
-  },
-)
+const initialState: ProductsState = {
+  products: [],
+  category: [],
+  selectedCategories: [],
+  cloneProducts: [],
+  status: null,
+  error: null,
+}
+
+export const fetchProducts = createAsyncThunk<
+  Product[],
+  undefined,
+  { rejectValue: string }
+>('products/fetchProducts', async function (_, { rejectWithValue }) {
+  const response = await fetch('https://fakestoreapi.com/products')
+
+  if (!response.ok) {
+    return rejectWithValue('Server Error!')
+  }
+
+  const data = await response.json()
+  return data
+})
 
 const productsSlice = createSlice({
   name: 'products',
-  initialState: {
-    products: [],
-    category: [],
-    selectedCategories: [],
-    cloneProducts: [],
-    status: null,
-    error: null,
-  },
+  initialState,
   reducers: {
     addSelectedCategory(state, action) {
       state.selectedCategories.push(action.payload)
       productsSlice.caseReducers.filterByCategory(state)
     },
 
-    removeSelectedCategory(state, action) {
+    removeSelectedCategory(state, action: PayloadAction<string>) {
       state.selectedCategories = state.selectedCategories.filter(
         (item) => item !== action.payload,
       )
       productsSlice.caseReducers.filterByCategory(state)
     },
-    filterProductsByPrice(state, action) {
+    filterProductsByPrice(
+      state,
+      action: PayloadAction<{ firstValue: number; secondValue: number }>,
+    ) {
       state.products.sort((a, b) =>
         a.price > b.price
           ? action.payload.firstValue
@@ -52,7 +77,10 @@ const productsSlice = createSlice({
           : action.payload.secondValue,
       )
     },
-    filterProductsByRating(state, action) {
+    filterProductsByRating(
+      state,
+      action: PayloadAction<{ firstValue: number; secondValue: number }>,
+    ) {
       state.products.sort((a, b) =>
         a.rating.rate > b.rating.rate
           ? action.payload.firstValue
@@ -90,7 +118,7 @@ const productsSlice = createSlice({
       })
       .addCase(fetchProducts.rejected, (state, action) => {
         state.status = 'rejected'
-        state.error = action.payload
+        state.error = action.payload as string
       })
   },
 })

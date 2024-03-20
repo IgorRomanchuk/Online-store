@@ -1,14 +1,14 @@
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined'
 import { useEffect, useState } from 'react'
-import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 
+import { useAppSelector } from '../hooks'
 import s from './header.module.css'
 
 const Header = () => {
   const [active, setActive] = useState('')
 
-  const count = useSelector((state: any) => state.cart.cart)
+  const count = useAppSelector((state) => state.cart.cart)
 
   const navigate = useNavigate()
 

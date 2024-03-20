@@ -4,21 +4,23 @@ import RemoveCircleIcon from '@mui/icons-material/RemoveCircle'
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
+import { useAppDispatch, useAppSelector } from '../../hooks'
 import {
   changeCount,
   refreshCart,
   removeProduct,
   sumProducts,
 } from '../../store/cartSlice'
+import { Product } from '../../store/productsSlice'
 import s from './cart.module.css'
 import BasicModal from './modal/Modal'
 
 const Cart = () => {
   const [open, setOpen] = useState(false)
 
-  const cart = useSelector((state: any) => state.cart.cart)
-  const sum = useSelector((state: any) => state.cart.sum)
-  const dispatch = useDispatch()
+  const cart = useAppSelector((state) => state.cart.cart)
+  const sum = useAppSelector((state) => state.cart.sum)
+  const dispatch = useAppDispatch()
   useEffect(() => {
     dispatch(sumProducts())
   })
@@ -26,7 +28,7 @@ const Cart = () => {
     <div className={s.container}>
       <div className={s.productsContainer}>
         {cart &&
-          cart.map((item: any) => (
+          cart.map((item: Product) => (
             <div key={item.id} className={s.cardProduct}>
               <div className={s.imageContainer}>
                 <img
