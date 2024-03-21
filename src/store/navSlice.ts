@@ -1,8 +1,10 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
-import { Product } from '../types/Product'
+type Nav = {
+  nav: string | null
+}
 
-const initialState: any = {
+const initialState: Nav = {
   nav: null,
 }
 
@@ -10,7 +12,7 @@ const navSlice = createSlice({
   name: 'navigation',
   initialState,
   reducers: {
-    setActiveNav(state, action) {
+    setActiveNav(state, action: PayloadAction<string | null>) {
       state.nav = action.payload
     },
   },
