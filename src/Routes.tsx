@@ -2,10 +2,10 @@ import { Navigate, useRoutes } from 'react-router-dom'
 
 import Layout from './layouts/Layout'
 import NotFound from './pages/404'
-import Cart from './pages/cart/Cart'
-import Home from './pages/home/Home'
+import Cart from './pages/cart'
+import Home from './pages/home'
+import Products from './pages/products'
 import Product from './pages/products/Product'
-import Products from './pages/products/Products'
 
 function Routes() {
   return useRoutes([
