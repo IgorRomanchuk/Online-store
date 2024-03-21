@@ -2,6 +2,7 @@ import { Checkbox, FormControlLabel, FormGroup } from '@mui/material'
 import LinearProgress from '@mui/material/LinearProgress'
 import { useEffect } from 'react'
 import Ratings from 'react-ratings-declarative'
+import { useNavigate } from 'react-router-dom'
 
 import { useAppDispatch, useAppSelector } from '../../hooks'
 import { addProduct } from '../../store/cartSlice'
@@ -9,6 +10,7 @@ import {
   addSelectedCategory,
   fetchProducts,
   removeSelectedCategory,
+  selectProduct,
 } from '../../store/productsSlice'
 import { Product } from '../../types/Product'
 import s from './products.module.css'
@@ -16,11 +18,10 @@ import Select from './Select'
 
 const Products = () => {
   const dispatch = useAppDispatch()
-
+  const navigate = useNavigate()
   const { products, category, status, error } = useAppSelector(
     (state) => state.products,
   )
-
   useEffect(() => {
     if (!products.length) dispatch(fetchProducts())
   }, [])
@@ -58,6 +59,11 @@ const Products = () => {
                 <div key={item.id} className={s.cardProduct}>
                   <div className={s.imageContainer}>
                     <img
+                      onClick={() => {
+                        dispatch(selectProduct(item))
+                        navigate(`./${item.id}`)
+                      }}
+                      style={{ cursor: 'pointer' }}
                       src={item.image}
                       alt={item.title}
                       height={200}
@@ -77,7 +83,15 @@ const Products = () => {
                     <span style={{ marginLeft: '5px' }}>
                       {item.rating.rate}
                     </span>
-                    <p className={s.title}>{item.title}</p>
+                    <p
+                      onClick={() => {
+                        dispatch(selectProduct(item))
+                        navigate(`./${item.id}`)
+                      }}
+                      className={s.title}
+                    >
+                      {item.title}
+                    </p>
                     <p className={s.price}>{`${item.price} $`}</p>
                   </div>
                   <button

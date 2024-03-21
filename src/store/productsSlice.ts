@@ -6,6 +6,7 @@ import { ProductsState } from '../types/Product'
 
 const initialState: ProductsState = {
   products: [],
+  product: null,
   category: [],
   selectedCategories: [],
   cloneProducts: [],
@@ -75,6 +76,9 @@ const productsSlice = createSlice({
       )
       if (!state.products.length) state.products = state.cloneProducts
     },
+    selectProduct(state, action: PayloadAction<Product>) {
+      state.product = action.payload
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -106,6 +110,7 @@ export const {
   filterByCategory,
   addSelectedCategory,
   removeSelectedCategory,
+  selectProduct,
 } = productsSlice.actions
 
 export default productsSlice.reducer

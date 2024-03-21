@@ -1,0 +1,10 @@
+.button {
+  margin-top: 10px;
+  cursor: pointer;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.button:hover {
+  text-decoration: underline;
+}

@@ -14,6 +14,7 @@ export type Product = {
 
 export type ProductsState = {
   products: Product[]
+  product: Product | null
   category: string[]
   selectedCategories: string[]
   cloneProducts: Product[]
