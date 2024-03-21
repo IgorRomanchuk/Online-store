@@ -1,25 +1,33 @@
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined'
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-import { useAppSelector } from '../hooks'
+import { useAppDispatch, useAppSelector } from '../hooks'
+import { setActiveNav } from '../store/navSlice'
 import s from './header.module.css'
 
 const Header = () => {
-  const [active, setActive] = useState('')
-
   const count = useAppSelector((state) => state.cart.cart)
+  const active = useAppSelector((state) => state.navigation.nav)
 
   const navigate = useNavigate()
 
+  const dispatch = useAppDispatch()
+
   useEffect(() => {
     const url = window.location.href.split('/')
-    setActive(url[url.length - 1])
+    dispatch(setActiveNav(url[url.length - 1]))
   }, [])
   return (
     <header className={s.header}>
       <h1 className={s.title}>
-        <button className={s.button} onClick={() => navigate('/home')}>
+        <button
+          className={s.button}
+          onClick={() => {
+            navigate('/home')
+            dispatch(setActiveNav('home'))
+          }}
+        >
           OnlineStore
         </button>
       </h1>
@@ -29,7 +37,7 @@ const Header = () => {
             <button
               onClick={() => {
                 navigate('/home')
-                setActive('home')
+                dispatch(setActiveNav('home'))
               }}
             >
               Home
@@ -39,7 +47,7 @@ const Header = () => {
             <button
               onClick={() => {
                 navigate('/products')
-                setActive('products')
+                dispatch(setActiveNav('products'))
               }}
             >
               Products
@@ -49,7 +57,7 @@ const Header = () => {
             className={s.cartContainer}
             onClick={() => {
               navigate('/cart')
-              setActive('cart')
+              dispatch(setActiveNav('cart'))
             }}
           >
             <button>
