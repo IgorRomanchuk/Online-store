@@ -2,3 +2,15 @@
   width: 700px;
   height: 400px;
 }
+
+:global {
+  .slick-list {
+    border-radius: 20px;
+  }
+  .slick-track {
+    height: 400px;
+  }
+  .slick-slide {
+    height: 400px !important;
+  }
+}

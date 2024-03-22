@@ -34,10 +34,9 @@
 .title {
   min-height: 70px;
   cursor: pointer;
-}
-
-.title:hover {
-  color: rgb(79, 181, 224);
+  &:hover {
+    color: rgb(79, 181, 224);
+  }
 }
 
 .price {
@@ -54,8 +53,7 @@
   color: white;
   margin: 0 auto;
   cursor: pointer;
-}
-
-.button:hover {
-  background-color: rgb(247, 179, 96);
+  &:hover {
+    background-color: rgb(247, 179, 96);
+  }
 }

@@ -2,9 +2,9 @@
   color: #8bb9ec;
   margin-top: 10px;
   cursor: pointer;
+  &:hover {
+    color: #0077fc;
+    text-decoration: underline;
+  }
 }
 
-.button:hover {
-  color: #0077fc;
-  text-decoration: underline;
-}

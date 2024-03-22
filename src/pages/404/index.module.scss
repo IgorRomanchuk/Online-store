@@ -12,8 +12,7 @@
   cursor: pointer;
   font-size: 24px;
   font-weight: 600;
-}
-
-.button:hover {
-  text-decoration: underline;
+  &:hover {
+    text-decoration: underline;
+  }
 }

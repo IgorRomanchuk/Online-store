@@ -52,10 +52,9 @@
   color: white;
   margin: 0 auto;
   cursor: pointer;
-}
-
-.button:hover {
-  background-color: rgb(247, 179, 96);
+  &:hover {
+    background-color: rgb(247, 179, 96);
+  }
 }
 
 .back {
@@ -66,10 +65,9 @@
   padding: 0;
   color: rgb(255 160 44);
   background-color: transparent;
-}
-
-.back:hover {
-  background-color: transparent;
-  color: rgb(247, 179, 96);
-  text-decoration: underline;
+  &:hover {
+    background-color: transparent;
+    color: rgb(247, 179, 96);
+    text-decoration: underline;
+  }
 }

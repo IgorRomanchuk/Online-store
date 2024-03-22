@@ -10,15 +10,15 @@
   padding-top: 30px;
   padding-bottom: 30px;
   width: 600px;
-}
 
-.productsContainer > :last-child {
+  &:last-child {
   margin-bottom: 0;
+    
+  }
 }
 
 .cardProduct {
   position: relative;
-
   display: flex;
   background-color: rgb(255 255 255);
   border-radius: 15px;
@@ -47,21 +47,18 @@
 .changeButtons {
   display: flex;
   align-items: center;
-}
-
-.changeButtons > * {
-  padding: 10px;
-}
-
-.changeButtons > svg {
-  cursor: pointer;
-  width: 40px;
-  height: 40px;
-  padding: 0;
-}
-
-.changeButtons > svg:hover {
-  color: rgb(247, 179, 96);
+  * {
+    padding: 10px;
+  }
+  svg {
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    &:hover {
+      color: rgb(247, 179, 96);
+    }
+  }
 }
 
 .purchaseContainer {
@@ -83,25 +80,19 @@
   padding-top: 20px;
 }
 
-.button {
+.priceButton {
+  cursor: pointer;
   font-size: 20px;
   font-weight: 600;
-  width: 200px;
+  width: 400px;
   padding: 10px 0;
   background-color: rgb(255 160 44);
   border-radius: 10px;
   color: white;
-  margin: 0 auto;
-  cursor: pointer;
-}
-
-.button:hover {
-  background-color: rgb(247, 179, 96);
-}
-
-.priceButton {
-  width: 400px;
   margin: 20px;
+  &:hover {
+    background-color: rgb(247, 179, 96);
+  }
 }
 
 .closeButton {
@@ -109,17 +100,15 @@
   top: 5%;
   right: 3%;
   cursor: pointer;
+  svg {
+    width: 40px;
+    height: 40px;
+  }
+  &:hover {
+    color: rgb(247, 179, 96);
+  }
 }
 
 .count {
   font-size: 18px;
-}
-
-.closeButton:hover {
- color: rgb(247, 179, 96);
-}
-
-.closeButton > svg {
-  width: 40px;
-  height: 40px;
 }

@@ -34,20 +34,7 @@
   color: white;
   margin: 0 auto;
   cursor: pointer;
-}
-
-.button:hover {
-  background-color: rgb(247, 179, 96);
-}
-
-:global(.slick-list) {
-  border-radius: 20px;
-}
-
-:global(.slick-track) {
-  height: 400px;
-}
-
-:global(.slick-slide) {
-  height: 400px !important;
+  &:hover {
+    background-color: rgb(247, 179, 96);
+  }
 }

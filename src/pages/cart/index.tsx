@@ -80,7 +80,7 @@ const Cart = () => {
                 dispatch(refreshCart())
               }
             }}
-            className={`${s.button} ${s.priceButton}`}
+            className={s.priceButton}
           >
             Purchase
           </button>
