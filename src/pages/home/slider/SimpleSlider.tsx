@@ -49,10 +49,10 @@ function SimpleSlider() {
         {images.map((item) => (
           <div key={item.src}>
             <img
+              width={700}
+              height={400}
               style={{
                 objectFit: 'cover',
-                width: '700px',
-                height: '400px',
               }}
               src={item.src}
               alt="image"
