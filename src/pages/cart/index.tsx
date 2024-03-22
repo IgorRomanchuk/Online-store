@@ -11,7 +11,7 @@ import {
   sumProducts,
 } from '../../store/cartSlice'
 import { Product } from '../../types/Product'
-import s from './index.module.css'
+import s from './index.module.scss'
 import BasicModal from './modal/Modal'
 
 const Cart = () => {

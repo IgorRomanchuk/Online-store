@@ -3,7 +3,7 @@ import Modal from '@mui/material/Modal'
 import Typography from '@mui/material/Typography'
 import { useNavigate } from 'react-router-dom'
 
-import s from './modal.module.css'
+import s from './modal.module.scss'
 
 const style = {
   position: 'absolute' as const,

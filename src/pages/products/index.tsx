@@ -13,7 +13,7 @@ import {
   selectProduct,
 } from '../../store/productsSlice'
 import { Product } from '../../types/Product'
-import s from './index.module.css'
+import s from './index.module.scss'
 import Select from './Select'
 
 const Products = () => {

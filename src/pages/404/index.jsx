@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom'
 
 import { useAppDispatch } from '../../hooks'
 import { setActiveNav } from '../../store/navSlice'
-import s from './index.module.css'
+import s from './index.module.scss'
 
 const NotFound = () => {
   const navigate = useNavigate()

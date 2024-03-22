@@ -7,7 +7,7 @@ import { useAppDispatch, useAppSelector } from '../../hooks'
 import { addProduct } from '../../store/cartSlice'
 import { selectProduct } from '../../store/productsSlice'
 import { fetchProducts } from '../../store/productsSlice'
-import s from './product.module.css'
+import s from './product.module.scss'
 
 const Product = () => {
   const navigate = useNavigate()

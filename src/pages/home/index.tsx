@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 
-import s from './index.module.css'
+import s from './index.module.scss'
 import SimpleSlider from './slider/SimpleSlider'
 
 const Home = () => {
