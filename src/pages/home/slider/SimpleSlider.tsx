@@ -48,7 +48,18 @@ function SimpleSlider() {
       <Slider {...settings}>
         {images.map((item) => (
           <div key={item.src}>
-            <img width={700} height={400} src={item.src} alt="image" />
+            <img
+              width={700}
+              height={400}
+              // style={
+              //   {
+              //     // objectFit: 'cover',
+              //   }
+              // }
+              src={item.src}
+              className={s.image}
+              alt="image"
+            />
           </div>
         ))}
       </Slider>
