@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 import { useAppDispatch } from '../../hooks'
@@ -8,6 +9,10 @@ import SimpleSlider from './slider/SimpleSlider'
 const Home = () => {
   const navigate = useNavigate()
   const dispatch = useAppDispatch()
+  useEffect(() => {
+    const url = window.location.href.split('/')
+    dispatch(setActiveNav(url[url.length - 1]))
+  }, [])
   return (
     <div className={s.container}>
       <div className={s.wrap}>

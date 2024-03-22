@@ -10,6 +10,7 @@ import {
   removeProduct,
   sumProducts,
 } from '../../store/cartSlice'
+import { setActiveNav } from '../../store/navSlice'
 import { Product } from '../../types/Product'
 import s from './index.module.scss'
 import BasicModal from './modal/Modal'
@@ -17,12 +18,15 @@ import BasicModal from './modal/Modal'
 const Cart = () => {
   const [open, setOpen] = useState(false)
 
-  const cart = useAppSelector((state) => state.cart.cart)
-  const sum = useAppSelector((state) => state.cart.sum)
+  const { cart, sum } = useAppSelector((state) => state.cart)
   const dispatch = useAppDispatch()
   useEffect(() => {
+    const url = window.location.href.split('/')
+    dispatch(setActiveNav(url[url.length - 1]))
+  }, [])
+  useEffect(() => {
     dispatch(sumProducts())
-  })
+  }, [cart])
   return (
     <div className={s.container}>
       <div className={s.productsContainer}>

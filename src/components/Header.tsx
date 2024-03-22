@@ -1,9 +1,7 @@
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined'
-import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-import { useAppDispatch, useAppSelector } from '../hooks'
-import { setActiveNav } from '../store/navSlice'
+import { useAppSelector } from '../hooks'
 import s from './header.module.css'
 
 const Header = () => {
@@ -12,12 +10,6 @@ const Header = () => {
 
   const navigate = useNavigate()
 
-  const dispatch = useAppDispatch()
-
-  useEffect(() => {
-    const url = window.location.href.split('/')
-    dispatch(setActiveNav(url[url.length - 1]))
-  }, [])
   return (
     <header className={s.header}>
       <h1 className={s.title}>
@@ -25,7 +17,6 @@ const Header = () => {
           className={s.button}
           onClick={() => {
             navigate('/home')
-            dispatch(setActiveNav('home'))
           }}
         >
           OnlineStore
@@ -37,7 +28,6 @@ const Header = () => {
             <button
               onClick={() => {
                 navigate('/home')
-                dispatch(setActiveNav('home'))
               }}
             >
               Home
@@ -47,7 +37,6 @@ const Header = () => {
             <button
               onClick={() => {
                 navigate('/products')
-                dispatch(setActiveNav('products'))
               }}
             >
               Products
@@ -57,7 +46,6 @@ const Header = () => {
             className={s.cartContainer}
             onClick={() => {
               navigate('/cart')
-              dispatch(setActiveNav('cart'))
             }}
           >
             <button>

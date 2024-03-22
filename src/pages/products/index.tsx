@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom'
 
 import { useAppDispatch, useAppSelector } from '../../hooks'
 import { addProduct } from '../../store/cartSlice'
+import { setActiveNav } from '../../store/navSlice'
 import {
   addSelectedCategory,
   fetchProducts,
@@ -23,6 +24,8 @@ const Products = () => {
     (state) => state.products,
   )
   useEffect(() => {
+    const url = window.location.href.split('/')
+    dispatch(setActiveNav(url[url.length - 1]))
     if (!products.length) dispatch(fetchProducts())
   }, [])
   if (error) {
