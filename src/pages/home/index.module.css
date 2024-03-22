@@ -47,3 +47,7 @@
 :global(.slick-track) {
   height: 400px;
 }
+
+:global(.slick-slide) {
+  height: 400px !important;
+}
