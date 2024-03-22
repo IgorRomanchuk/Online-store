@@ -68,7 +68,7 @@
   background-color: transparent;
 }
 
-.button:hover {
+.back:hover {
   background-color: transparent;
   color: rgb(247, 179, 96);
   text-decoration: underline;
