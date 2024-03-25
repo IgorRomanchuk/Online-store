@@ -12,55 +12,59 @@ const Header = () => {
 
   return (
     <header className={s.header}>
-      <h1 className={s.title}>
-        <button
-          className={s.button}
-          onClick={() => {
-            navigate('/home')
-          }}
-        >
-          OnlineStore
-        </button>
-      </h1>
-      <nav>
-        <ul className={s.navigation}>
-          <li style={{ color: `${active === 'home' ? 'black' : 'white'}` }}>
-            <button
-              onClick={() => {
-                navigate('/home')
-              }}
-            >
-              Home
-            </button>
-          </li>
-          <li style={{ color: `${active === 'products' ? 'black' : 'white'}` }}>
-            <button
-              onClick={() => {
-                navigate('/products')
-              }}
-            >
-              Products
-            </button>
-          </li>
-          <li
-            className={s.cartContainer}
+      <div className={s.container}>
+        <h1 className={s.title}>
+          <button
+            className={s.button}
             onClick={() => {
-              navigate('/cart')
+              navigate('/home')
             }}
           >
-            <button>
-              <ShoppingCartOutlinedIcon
-                style={{
-                  color: `${active === 'cart' ? 'black' : 'white'}`,
+            OnlineStore
+          </button>
+        </h1>
+        <nav>
+          <ul className={s.navigation}>
+            <li style={{ color: `${active === 'home' ? 'black' : 'white'}` }}>
+              <button
+                onClick={() => {
+                  navigate('/home')
                 }}
-              />
-            </button>
-            {count.length > 0 && (
-              <div className={s.countProduct}>{count.length}</div>
-            )}
-          </li>
-        </ul>
-      </nav>
+              >
+                Home
+              </button>
+            </li>
+            <li
+              style={{ color: `${active === 'products' ? 'black' : 'white'}` }}
+            >
+              <button
+                onClick={() => {
+                  navigate('/products')
+                }}
+              >
+                Products
+              </button>
+            </li>
+            <li
+              className={s.cartContainer}
+              onClick={() => {
+                navigate('/cart')
+              }}
+            >
+              <button>
+                <ShoppingCartOutlinedIcon
+                  style={{
+                    color: `${active === 'cart' ? 'black' : 'white'}`,
+                  }}
+                />
+              </button>
+              {count.length > 0 && (
+                <div className={s.countProduct}>{count.length}</div>
+              )}
+            </li>
+          </ul>
+        </nav>
+      </div>
     </header>
   )
 }
