@@ -2,7 +2,7 @@ import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined'
 import { useNavigate } from 'react-router-dom'
 
 import { useAppSelector } from '../hooks'
-import s from './header.module.css'
+import s from './header.module.scss'
 
 const Header = () => {
   const count = useAppSelector((state) => state.cart.cart)

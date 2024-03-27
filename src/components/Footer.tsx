@@ -1,6 +1,6 @@
 import GitHubIcon from '@mui/icons-material/GitHub'
 
-import s from './footer.module.css'
+import s from './footer.module.scss'
 
 const Footer = () => {
   return (

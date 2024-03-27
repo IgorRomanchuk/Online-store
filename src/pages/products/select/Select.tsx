@@ -9,7 +9,7 @@ import { useDispatch } from 'react-redux'
 import {
   filterProductsByPrice,
   filterProductsByRating,
-} from '../../store/productsSlice'
+} from '../../../store/productsSlice'
 import s from './select.module.scss'
 
 export default function BasicSelect() {

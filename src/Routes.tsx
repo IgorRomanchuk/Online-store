@@ -5,7 +5,7 @@ import NotFound from './pages/404'
 import Cart from './pages/cart'
 import Home from './pages/home'
 import Products from './pages/products'
-import Product from './pages/products/Product'
+import Product from './pages/products/product/Product'
 
 function Routes() {
   return useRoutes([

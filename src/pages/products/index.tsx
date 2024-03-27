@@ -15,7 +15,7 @@ import {
 } from '../../store/productsSlice'
 import { Product } from '../../types/Product'
 import s from './index.module.scss'
-import Select from './Select'
+import Select from './select/Select'
 
 const Products = () => {
   const dispatch = useAppDispatch()

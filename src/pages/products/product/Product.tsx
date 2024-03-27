@@ -3,10 +3,10 @@ import Ratings from 'react-ratings-declarative'
 import { useParams } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
 
-import { useAppDispatch, useAppSelector } from '../../hooks'
-import { addProduct } from '../../store/cartSlice'
-import { selectProduct } from '../../store/productsSlice'
-import { fetchProducts } from '../../store/productsSlice'
+import { useAppDispatch, useAppSelector } from '../../../hooks'
+import { addProduct } from '../../../store/cartSlice'
+import { selectProduct } from '../../../store/productsSlice'
+import { fetchProducts } from '../../../store/productsSlice'
 import s from './product.module.scss'
 
 const Product = () => {

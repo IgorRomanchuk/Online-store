@@ -31,22 +31,19 @@
   align-items: center;
   margin: 0;
   padding: 0;
-}
-
-.navigation > li {
-  color: white;
-  list-style: none;
-  margin-right: 1rem;
-  cursor: pointer;
-  font-weight: 600;
-}
-
-.navigation > li > button {
-  cursor: pointer;
-}
-
-.navigation > li:last-child {
-  margin-right: 0;
+  li {
+    color: white;
+    list-style: none;
+    margin-right: 1rem;
+    cursor: pointer;
+    font-weight: 600;
+    &:last-child {
+      margin-right: 0;
+    }
+    button {
+      cursor: pointer;
+    }
+  }
 }
 
 .cartContainer {
@@ -58,10 +55,9 @@
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-}
-
-.cartContainer > button {
-  display: flex;
+  button {
+    display: flex;
+  }
 }
 
 .countProduct {
@@ -106,5 +102,3 @@
     }
   }
 }
-
-

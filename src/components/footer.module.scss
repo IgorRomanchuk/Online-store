@@ -1,0 +1,23 @@
+.footer {
+  background-color: rgb(255 160 44);
+  opacity: 0.8;
+  p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    color: white;
+    padding: 10px;
+    span {
+      margin-left: 10px;
+      button {
+        display: flex;
+        cursor: pointer;
+        border-radius: 50%;
+        &:hover {
+          background-color: black;
+        }
+      }
+    }
+  }
+}
