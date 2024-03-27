@@ -37,7 +37,7 @@ const Products = () => {
         <LinearProgress />
       ) : (
         <div className={s.container}>
-          <div style={{ display: 'flex', alignItems: 'end' }}>
+          <div className={s.wrap}>
             <Select />
             <FormGroup style={{ flexDirection: 'row' }}>
               {category.map((item: string) => (

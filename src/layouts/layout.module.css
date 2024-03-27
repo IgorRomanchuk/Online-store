@@ -3,7 +3,8 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: bottom;
-  min-height: calc(100vh - 86px - 76px);
+  min-height: calc(100vh - 86px - 76px - 20px);
   position: relative;
+  padding: 10px;
 }
 

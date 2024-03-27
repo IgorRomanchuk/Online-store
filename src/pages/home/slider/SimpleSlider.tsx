@@ -41,13 +41,10 @@ function SimpleSlider() {
     prevArrow: <SamplePrevArrow />,
   }
   return (
-    <div
-      className="slider-container"
-      style={{ width: '700px', height: '400px' }}
-    >
+    <div className={s.container}>
       <Slider {...settings}>
         {images.map((item) => (
-          <div key={item.src}>
+          <div className={s.imageContainer} key={item.src}>
             <img src={item.src} className={s.image} alt="image" />
           </div>
         ))}

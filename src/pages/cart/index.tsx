@@ -90,7 +90,7 @@ const Cart = () => {
           </button>
         </div>
       </div>
-      <BasicModal open={open} setOpen={setOpen} />
+      {open && <BasicModal open={open} setOpen={setOpen} />}
     </div>
   )
 }

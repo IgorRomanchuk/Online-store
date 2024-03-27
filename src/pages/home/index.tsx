@@ -28,7 +28,7 @@ const Home = () => {
             Start shopping
           </button>
         </div>
-        <div>
+        <div style={{ margin: 'auto 0' }}>
           <SimpleSlider />
         </div>
       </div>

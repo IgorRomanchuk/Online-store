@@ -29,7 +29,7 @@ export default function BasicModal({ open, setOpen }: IProps) {
   const handleClose = () => setOpen(false)
 
   return (
-    <div>
+    <>
       <Modal
         open={open}
         onClose={handleClose}
@@ -48,6 +48,6 @@ export default function BasicModal({ open, setOpen }: IProps) {
           </button>
         </Box>
       </Modal>
-    </div>
+    </>
   )
 }

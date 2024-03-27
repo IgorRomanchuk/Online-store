@@ -1,3 +1,8 @@
+.container { 
+  width: 700px;
+  height: 400px;
+}
+
 .image {
   width: 700px;
   height: 400px;
@@ -12,5 +17,37 @@
   }
   .slick-slide {
     height: 400px !important;
+  }
+}
+
+@media screen and (max-width: 1250px) {
+  .container, .image {
+    width: 600px;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .container, .image {
+    max-width: 500px;
+  }
+}
+
+@media screen and (max-width: 520px) {
+  .container, .image {
+    max-width: calc(100vw - 20px);
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .container, .image {
+    height: 250px;
+  }
+  :global {
+    .slick-track {
+      height: 250px;
+    }
+    .slick-slide {
+      height: 250px !important;
+    }
   }
 }

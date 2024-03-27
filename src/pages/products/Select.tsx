@@ -10,6 +10,7 @@ import {
   filterProductsByPrice,
   filterProductsByRating,
 } from '../../store/productsSlice'
+import s from './select.module.scss'
 
 export default function BasicSelect() {
   const dispatch = useDispatch()
@@ -21,6 +22,7 @@ export default function BasicSelect() {
 
   return (
     <Box
+      className={s.container}
       sx={{
         display: 'inline-block',
         minWidth: 150,
