@@ -2,6 +2,7 @@ import AddCircleIcon from '@mui/icons-material/AddCircle'
 import HighlightOffIcon from '@mui/icons-material/HighlightOff'
 import RemoveCircleIcon from '@mui/icons-material/RemoveCircle'
 import { useEffect, useState } from 'react'
+import { useLocation } from 'react-router-dom'
 
 import { useAppDispatch, useAppSelector } from '../../hooks'
 import {
@@ -17,13 +18,15 @@ import BasicModal from './modal/Modal'
 
 const Cart = () => {
   const [open, setOpen] = useState(false)
+  const location = useLocation()
 
   const { cart, sum } = useAppSelector((state) => state.cart)
   const dispatch = useAppDispatch()
+
   useEffect(() => {
-    const url = window.location.href.split('/')
-    dispatch(setActiveNav(url[url.length - 1]))
+    dispatch(setActiveNav(location.pathname.replace('/', '')))
   }, [])
+
   useEffect(() => {
     dispatch(sumProducts())
   }, [cart])

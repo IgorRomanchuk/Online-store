@@ -2,7 +2,7 @@ import { Checkbox, FormControlLabel, FormGroup } from '@mui/material'
 import LinearProgress from '@mui/material/LinearProgress'
 import { useEffect } from 'react'
 import Ratings from 'react-ratings-declarative'
-import { useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 
 import { useAppDispatch, useAppSelector } from '../../hooks'
 import { addProduct } from '../../store/cartSlice'
@@ -20,14 +20,17 @@ import Select from './select/Select'
 const Products = () => {
   const dispatch = useAppDispatch()
   const navigate = useNavigate()
+  const location = useLocation()
+
   const { products, category, status, error } = useAppSelector(
     (state) => state.products,
   )
+
   useEffect(() => {
-    const url = window.location.href.split('/')
-    dispatch(setActiveNav(url[url.length - 1]))
+    dispatch(setActiveNav(location.pathname.replace('/', '')))
     if (!products.length) dispatch(fetchProducts())
   }, [])
+
   if (error) {
     return <h1 style={{ marginTop: '100px' }}>An error occed: {error}</h1>
   }
