@@ -1,6 +1,11 @@
+import fourthImage from '@assets/images/fourth.jpg'
+import firstImage from '@assets/images/one.jpg'
+import secondImage from '@assets/images/second.jpeg'
+import thirdImage from '@assets/images/third.jpg'
+
 export const images = [
-  { src: '/images/one.jpg' },
-  { src: '/images/second.jpeg' },
-  { src: '/images/third.jpg' },
-  { src: '/images/fourth.jpg' },
+  { src: firstImage },
+  { src: secondImage },
+  { src: thirdImage },
+  { src: fourthImage },
 ]
