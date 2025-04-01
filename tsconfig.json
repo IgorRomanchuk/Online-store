@@ -24,6 +24,11 @@
       "@assets/*": ["assets/*"],
       "@core/*": ["core/*"],
       "@features/*": ["features/*"],
+      "@app/*": ["app/*"],
+      "@entities/*": ["entities/*"],
+      "@pages/*": ["pages/*"],
+      "@shared/*": ["shared/*"],
+      "@widgets/*": ["widgets/*"]
     }
   },
   "include": [

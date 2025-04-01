@@ -1,21 +1,22 @@
+import Select from '@features/products/ui/select/Select'
 import { Checkbox, FormControlLabel, FormGroup } from '@mui/material'
 import LinearProgress from '@mui/material/LinearProgress'
 import { useEffect } from 'react'
 import Ratings from 'react-ratings-declarative'
 import { useLocation, useNavigate } from 'react-router-dom'
 
-import { useAppDispatch, useAppSelector } from '../../hooks'
-import { addProduct } from '../../store/cartSlice'
-import { setActiveNav } from '../../store/navSlice'
+import { addProduct } from '../../app/store/cartSlice'
+import { setActiveNav } from '../../app/store/navSlice'
 import {
   addSelectedCategory,
   fetchProducts,
   removeSelectedCategory,
   selectProduct,
-} from '../../store/productsSlice'
-import { Product } from '../../types/Product'
+} from '../../app/store/productsSlice'
+import { useAppDispatch } from '../../shared/hooks/useAppDispatch'
+import { useAppSelector } from '../../shared/hooks/useAppSelector'
+import { ProductModel } from '../../shared/models/product.model'
 import s from './index.module.scss'
-import Select from './select/Select'
 
 const Products = () => {
   const dispatch = useAppDispatch()
@@ -32,8 +33,9 @@ const Products = () => {
   }, [])
 
   if (error) {
-    return <h1 style={{ marginTop: '100px' }}>An error occed: {error}</h1>
+    return <h1 style={{ marginTop: '100px' }}>An error occurred: {error}</h1>
   }
+
   return (
     <>
       {status === 'loading' ? (
@@ -61,7 +63,7 @@ const Products = () => {
           </div>
           <div className={s.productsContainer}>
             {products.length &&
-              products.map((item: Product) => (
+              products.map((item: ProductModel) => (
                 <div key={item.id} className={s.cardProduct}>
                   <div className={s.imageContainer}>
                     <img

@@ -1,10 +1,10 @@
+import HomeSlider from '@features/home/ui/Slider/HomeSlider'
 import { useEffect } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 
-import { useAppDispatch } from '../../hooks'
-import { setActiveNav } from '../../store/navSlice'
+import { setActiveNav } from '../../app/store/navSlice'
+import { useAppDispatch } from '../../shared/hooks/useAppDispatch'
 import s from './index.module.scss'
-import SimpleSlider from './slider/SimpleSlider'
 
 const Home = () => {
   const navigate = useNavigate()
@@ -31,7 +31,7 @@ const Home = () => {
           </button>
         </div>
         <div style={{ margin: 'auto 0' }}>
-          <SimpleSlider />
+          <HomeSlider />
         </div>
       </div>
     </div>

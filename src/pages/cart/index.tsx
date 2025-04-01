@@ -1,20 +1,21 @@
+import CartModal from '@features/cart/ui/CartModal/Modal'
 import AddCircleIcon from '@mui/icons-material/AddCircle'
 import HighlightOffIcon from '@mui/icons-material/HighlightOff'
 import RemoveCircleIcon from '@mui/icons-material/RemoveCircle'
 import { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
 
-import { useAppDispatch, useAppSelector } from '../../hooks'
 import {
   changeCount,
   refreshCart,
   removeProduct,
   sumProducts,
-} from '../../store/cartSlice'
-import { setActiveNav } from '../../store/navSlice'
-import { Product } from '../../types/Product'
+} from '../../app/store/cartSlice'
+import { setActiveNav } from '../../app/store/navSlice'
+import { useAppDispatch } from '../../shared/hooks/useAppDispatch'
+import { useAppSelector } from '../../shared/hooks/useAppSelector'
+import { ProductModel } from '../../shared/models/product.model'
 import s from './index.module.scss'
-import BasicModal from './modal/Modal'
 
 const Cart = () => {
   const [open, setOpen] = useState(false)
@@ -34,7 +35,7 @@ const Cart = () => {
     <div className={s.container}>
       <div className={s.productsContainer}>
         {cart &&
-          cart.map((item: Product) => (
+          cart.map((item: ProductModel) => (
             <div key={item.id} className={s.cardProduct}>
               <div className={s.imageContainer}>
                 <img
@@ -93,7 +94,7 @@ const Cart = () => {
           </button>
         </div>
       </div>
-      {open && <BasicModal open={open} setOpen={setOpen} />}
+      {open && <CartModal open={open} setOpen={setOpen} />}
     </div>
   )
 }
