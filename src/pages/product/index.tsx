@@ -8,7 +8,7 @@ import { selectProduct } from '../../app/store/productsSlice'
 import { fetchProducts } from '../../app/store/productsSlice'
 import { useAppDispatch } from '../../shared/hooks/useAppDispatch'
 import { useAppSelector } from '../../shared/hooks/useAppSelector'
-import { ProductModel as ProductModel } from '../../shared/models/product.model'
+import { ProductModel } from '../../shared/models/product.model'
 import s from './product.module.scss'
 
 const Product = () => {

@@ -1,11 +1,11 @@
 import './App.scss'
 
-import Routes from './router/Routes'
+import AppRoutes from '@app/router/AppRoutes'
 
 function App() {
   return (
     <div className="App">
-      <Routes />
+      <AppRoutes />
     </div>
   )
 }
