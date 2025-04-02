@@ -1,21 +1,21 @@
-import Select from '@features/products/ui/select/Select'
-import { Checkbox, FormControlLabel, FormGroup } from '@mui/material'
-import LinearProgress from '@mui/material/LinearProgress'
-import { useEffect } from 'react'
-import Ratings from 'react-ratings-declarative'
-import { useLocation, useNavigate } from 'react-router-dom'
-
-import { addProduct } from '../../app/store/cartSlice'
-import { setActiveNav } from '../../app/store/navSlice'
+import { addProduct } from '@app/store/cartSlice'
+import { setActiveNav } from '@app/store/navSlice'
 import {
   addSelectedCategory,
   fetchProducts,
   removeSelectedCategory,
   selectProduct,
-} from '../../app/store/productsSlice'
-import { useAppDispatch } from '../../shared/hooks/useAppDispatch'
-import { useAppSelector } from '../../shared/hooks/useAppSelector'
-import { ProductModel } from '../../shared/models/product.model'
+} from '@app/store/productsSlice'
+import Select from '@features/products/ui/select/Select'
+import { Checkbox, FormControlLabel, FormGroup } from '@mui/material'
+import LinearProgress from '@mui/material/LinearProgress'
+import { useAppDispatch } from '@shared/hooks/useAppDispatch'
+import { useAppSelector } from '@shared/hooks/useAppSelector'
+import { ProductModel } from '@shared/models/product.model'
+import { useEffect } from 'react'
+import Ratings from 'react-ratings-declarative'
+import { useLocation, useNavigate } from 'react-router-dom'
+
 import s from './index.module.scss'
 
 const Products = () => {

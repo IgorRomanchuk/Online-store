@@ -1,7 +1,7 @@
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined'
+import { useAppSelector } from '@shared/hooks/useAppSelector'
 import { useNavigate } from 'react-router-dom'
 
-import { useAppSelector } from '../../hooks/useAppSelector'
 import s from './header.module.scss'
 
 export const Header = () => {

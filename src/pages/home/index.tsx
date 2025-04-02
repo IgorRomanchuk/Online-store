@@ -1,9 +1,9 @@
+import { setActiveNav } from '@app/store/navSlice'
 import HomeSlider from '@features/home/ui/Slider/HomeSlider'
+import { useAppDispatch } from '@shared/hooks/useAppDispatch'
 import { useEffect } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 
-import { setActiveNav } from '../../app/store/navSlice'
-import { useAppDispatch } from '../../shared/hooks/useAppDispatch'
 import s from './index.module.scss'
 
 const Home = () => {

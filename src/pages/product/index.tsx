@@ -1,14 +1,14 @@
+import { addProduct } from '@app/store/cartSlice'
+import { selectProduct } from '@app/store/productsSlice'
+import { fetchProducts } from '@app/store/productsSlice'
+import { useAppDispatch } from '@shared/hooks/useAppDispatch'
+import { useAppSelector } from '@shared/hooks/useAppSelector'
+import { ProductModel } from '@shared/models/product.model'
 import { useEffect } from 'react'
 import Ratings from 'react-ratings-declarative'
 import { useParams } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
 
-import { addProduct } from '../../app/store/cartSlice'
-import { selectProduct } from '../../app/store/productsSlice'
-import { fetchProducts } from '../../app/store/productsSlice'
-import { useAppDispatch } from '../../shared/hooks/useAppDispatch'
-import { useAppSelector } from '../../shared/hooks/useAppSelector'
-import { ProductModel } from '../../shared/models/product.model'
 import s from './product.module.scss'
 
 const Product = () => {

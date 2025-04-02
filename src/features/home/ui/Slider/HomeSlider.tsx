@@ -1,9 +1,9 @@
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 
+import { sliderImages } from '@shared/constants/slider-images'
 import Slider, { CustomArrowProps } from 'react-slick'
 
-import { sliderImages } from '../../../../shared/constants/slider-images'
 import s from './home-slider.module.scss'
 
 function SampleNextArrow(props: CustomArrowProps) {

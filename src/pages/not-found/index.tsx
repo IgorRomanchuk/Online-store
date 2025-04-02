@@ -1,7 +1,7 @@
+import { setActiveNav } from '@app/store/navSlice'
+import { useAppDispatch } from '@shared/hooks/useAppDispatch'
 import { useNavigate } from 'react-router-dom'
 
-import { setActiveNav } from '../../app/store/navSlice'
-import { useAppDispatch } from '../../shared/hooks/useAppDispatch'
 import s from './index.module.scss'
 
 const NotFound = () => {

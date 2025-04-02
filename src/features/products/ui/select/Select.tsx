@@ -1,3 +1,7 @@
+import {
+  filterProductsByPrice,
+  filterProductsByRating,
+} from '@app/store/productsSlice'
 import Box from '@mui/material/Box'
 import FormControl from '@mui/material/FormControl'
 import InputLabel from '@mui/material/InputLabel'
@@ -6,10 +10,6 @@ import Select, { SelectChangeEvent } from '@mui/material/Select'
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 
-import {
-  filterProductsByPrice,
-  filterProductsByRating,
-} from '../../../../app/store/productsSlice'
 import s from './select.module.scss'
 
 export default function BasicSelect() {

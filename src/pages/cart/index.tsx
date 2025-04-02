@@ -1,20 +1,20 @@
-import CartModal from '@features/cart/ui/CartModal/Modal'
-import AddCircleIcon from '@mui/icons-material/AddCircle'
-import HighlightOffIcon from '@mui/icons-material/HighlightOff'
-import RemoveCircleIcon from '@mui/icons-material/RemoveCircle'
-import { useEffect, useState } from 'react'
-import { useLocation } from 'react-router-dom'
-
 import {
   changeCount,
   refreshCart,
   removeProduct,
   sumProducts,
-} from '../../app/store/cartSlice'
-import { setActiveNav } from '../../app/store/navSlice'
-import { useAppDispatch } from '../../shared/hooks/useAppDispatch'
-import { useAppSelector } from '../../shared/hooks/useAppSelector'
-import { ProductModel } from '../../shared/models/product.model'
+} from '@app/store/cartSlice'
+import { setActiveNav } from '@app/store/navSlice'
+import CartModal from '@features/cart/ui/CartModal/Modal'
+import AddCircleIcon from '@mui/icons-material/AddCircle'
+import HighlightOffIcon from '@mui/icons-material/HighlightOff'
+import RemoveCircleIcon from '@mui/icons-material/RemoveCircle'
+import { useAppDispatch } from '@shared/hooks/useAppDispatch'
+import { useAppSelector } from '@shared/hooks/useAppSelector'
+import { ProductModel } from '@shared/models/product.model'
+import { useEffect, useState } from 'react'
+import { useLocation } from 'react-router-dom'
+
 import s from './index.module.scss'
 
 const Cart = () => {
