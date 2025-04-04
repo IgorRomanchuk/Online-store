@@ -8,114 +8,6 @@
   text-align: left;
 }
 
-.productsContainer {
-  padding-top: 30px;
-  padding-bottom: 30px;
-  width: 600px;
-
-  &:last-child {
-  margin-bottom: 0;
-    
-  }
-}
-
-.cardProduct {
-  position: relative;
-  display: flex;
-  background-color: rgb(255 255 255);
-  border-radius: 15px;
-  margin-bottom: 20px;
-}
-
-.imageContainer {
-  padding: 20px;
-  text-align: center;
-}
-
-.title, .price {
-  text-align: left;
-  font-weight: 500;
-}
-
-.price {
-  font-size: 18px;
-}
-
-.title {
-  width: 330px;
-  margin-top: 20px;
-}
-
-.changeButtons {
-  display: flex;
-  align-items: center;
-  * {
-    padding: 10px;
-  }
-  svg {
-    cursor: pointer;
-    width: 40px;
-    height: 40px;
-    padding: 0;
-    &:hover {
-      color: rgb(247, 179, 96);
-    }
-  }
-}
-
-.purchaseContainer {
-  width: 600px;
-  padding: 30px 0;
-}
-
-.purchaseCard {
-  background-color: rgb(255 255 255);
-  border-radius: 15px;
-  text-align: center;
-  width: 100%;
-}
-
-.purchasePrice {
-  margin: 0;
-  font-size: 24px;
-  font-weight: 700;
-  text-transform: uppercase;
-  padding-top: 20px;
-}
-
-.priceButton {
-  cursor: pointer;
-  font-size: 20px;
-  font-weight: 600;
-  width: 400px;
-  padding: 10px 0;
-  background-color: rgb(255 160 44);
-  border-radius: 10px;
-  color: white;
-  margin: 20px;
-  &:hover {
-    background-color: rgb(247, 179, 96);
-  }
-}
-
-.closeButton {
-  position: absolute;
-  top: 5%;
-  right: 3%;
-  cursor: pointer;
-  svg {
-    width: 40px;
-    height: 40px;
-  }
-  &:hover {
-    color: rgb(247, 179, 96);
-  }
-}
-
-.count {
-  font-size: 18px;
-}
-
 @media screen and (max-width: 1536px) {
   .container {
     max-width: 1200px;
@@ -125,9 +17,6 @@
 @media screen and (max-width: 1250px) {
   .container {
     max-width: 1100px;
-  }
-  .title {
-    width: 290px;
   }
 }
 
@@ -142,58 +31,5 @@
 @media screen and (max-width: 650px) {
   .container {
     max-width: 500px;
-  }
-
-  .productsContainer {
-    max-width: 500px;
-    width: 100%;
-  }
-
-  .purchaseContainer {
-    max-width: 500px;
-    width: 100%;
-  }
-
-  .purchaseCard {
-    max-width: 500px;
-    width: 100%;
-  }
-
-  .priceButton {
-    max-width: 400px;
-    width: 100%;
-  }
-
-  .title {
-    max-width: 250px;
-    width: 100%;
-  }
-  .cardProduct {
-    flex-direction: column;
-  }
-}
-
-@media screen and (max-width: 450px) {
-  .title {
-    text-align: center;
-    margin: 0 auto;
-  }
-  .price {
-    margin: 10px auto;
-  }
-  .changeButtons {
-    margin: 0 auto;
-  }
-  .priceButton {
-    width:  250px;
-  }
-}
-
-@media screen and (max-width: 450px) {
-  .priceButton {
-    width:  150px;
-  }
-  .closeButton {
-    top: 2%;
   }
 }

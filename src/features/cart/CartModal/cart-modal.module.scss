@@ -11,7 +11,7 @@
   text-align: center;
 }
 
-.button {
+.backToShopping {
   color: #8bb9ec;
   margin-top: 10px;
   cursor: pointer;
@@ -19,5 +19,40 @@
   &:hover {
     color: #0077fc;
     text-decoration: underline;
+  }
+}
+
+.purchaseButton {
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: 600;
+  width: 400px;
+  padding: 10px 0;
+  background-color: rgb(255 160 44);
+  border-radius: 10px;
+  color: white;
+  margin: 20px;
+
+  &:hover {
+    background-color: rgb(247, 179, 96);
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .purchaseButton {
+    max-width: 400px;
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .purchaseButton {
+    width: 250px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .purchaseButton {
+    width: 150px;
   }
 }

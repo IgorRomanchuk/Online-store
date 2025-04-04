@@ -1,0 +1,130 @@
+.container {
+  position: relative;
+  display: flex;
+  background-color: rgb(255 255 255);
+  border-radius: 15px;
+  margin-bottom: 20px;
+}
+
+.box {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.imageContainer {
+  padding: 20px;
+  text-align: center;
+}
+
+.title, .price {
+  text-align: left;
+  font-weight: 500;
+}
+
+.price {
+  font-size: 18px;
+}
+
+.title {
+  width: 330px;
+  margin-top: 20px;
+}
+
+.changeCountButtons {
+  display: flex;
+  align-items: center;
+
+  * {
+    padding: 10px;
+  }
+
+  svg {
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+
+    &:hover {
+      color: rgb(247, 179, 96);
+    }
+  }
+}
+
+.purchaseCard {
+  background-color: rgb(255 255 255);
+  border-radius: 15px;
+  text-align: center;
+  width: 100%;
+}
+
+.purchasePrice {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding-top: 20px;
+}
+
+.closeButton {
+  position: absolute;
+  top: 5%;
+  right: 3%;
+  cursor: pointer;
+
+  svg {
+    width: 40px;
+    height: 40px;
+  }
+
+  &:hover {
+    color: rgb(247, 179, 96);
+  }
+}
+
+.count {
+  font-size: 18px;
+}
+
+@media screen and (max-width: 1250px) {
+  .title {
+    width: 290px;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .purchaseCard {
+    max-width: 500px;
+    width: 100%;
+  }
+
+  .title {
+    max-width: 250px;
+    width: 100%;
+  }
+
+  .container {
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .title {
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  .price {
+    margin: 10px auto;
+  }
+
+  .changeCountButtons {
+    margin: 0 auto;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .closeButton {
+    top: 2%;
+  }
+}

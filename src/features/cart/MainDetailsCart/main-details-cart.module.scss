@@ -1,0 +1,17 @@
+.productsContainer {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  width: 600px;
+
+  &:last-child {
+    margin-bottom: 0;
+
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .productsContainer {
+    max-width: 500px;
+    width: 100%;
+  }
+}

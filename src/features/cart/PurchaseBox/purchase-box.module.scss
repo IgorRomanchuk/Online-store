@@ -1,0 +1,31 @@
+.purchaseContainer {
+  width: 600px;
+  padding: 30px 0;
+}
+
+.purchaseCard {
+  background-color: rgb(255 255 255);
+  border-radius: 15px;
+  text-align: center;
+  width: 100%;
+}
+
+.purchasePrice {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding-top: 20px;
+}
+
+@media screen and (max-width: 650px) {
+  .purchaseContainer {
+    max-width: 500px;
+    width: 100%;
+  }
+
+  .purchaseCard {
+    max-width: 500px;
+    width: 100%;
+  }
+}
