@@ -1,8 +1,8 @@
-import Cart from '@pages/cart'
-import Home from '@pages/home'
-import NotFound from '@pages/not-found'
-import Product from '@pages/product'
-import Products from '@pages/products'
+import CartPage from '@pages/cart'
+import HomePage from '@pages/home'
+import NotFoundPage from '@pages/not-found'
+import ProductPage from '@pages/product'
+import ProductsPage from '@pages/products'
 import Layout from '@shared/ui/layout/Layout'
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 
@@ -11,12 +11,12 @@ const AppRoutes = () => (
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<Navigate to="/home" />} />
-        <Route path="home" element={<Home />} />
-        <Route path="products" element={<Products />} />
-        <Route path="products/:productId" element={<Product />} />
-        <Route path="cart" element={<Cart />} />
+        <Route path="home" element={<HomePage />} />
+        <Route path="products" element={<ProductsPage />} />
+        <Route path="products/:productId" element={<ProductPage />} />
+        <Route path="cart" element={<CartPage />} />
 
-        <Route path="not-found" element={<NotFound />} />
+        <Route path="not-found" element={<NotFoundPage />} />
         <Route path="*" element={<Navigate to="not-found" replace />} />
       </Route>
     </Routes>
