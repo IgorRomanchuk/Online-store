@@ -32,7 +32,7 @@ export const ProductsPage = () => {
   }
 
   return (
-    <div>
+    <div className={s.container}>
       <div className={s.wrap}>
         <SelectProducts />
         <CheckboxForm />
