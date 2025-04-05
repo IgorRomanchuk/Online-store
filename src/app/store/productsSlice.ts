@@ -1,8 +1,7 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { ProductModel } from '@shared/models/product.model'
+import { ProductsState } from '@shared/models/product.model'
 import axios from 'axios'
-
-import { ProductModel } from '../../shared/models/product.model'
-import { ProductsState } from '../../shared/models/product.model'
 
 const initialState: ProductsState = {
   products: [],
@@ -20,7 +19,7 @@ export const fetchProducts = createAsyncThunk<
   { rejectValue: string }
 >('products/fetchProducts', async function (_, { rejectWithValue }) {
   return axios
-    .get('https://fakestoreapi.com/products')
+    .get('https://fakestoreapi.com/productss')
     .then((res) => res.data)
     .catch((err) => rejectWithValue(err.message))
 })
