@@ -19,7 +19,7 @@ export const fetchProducts = createAsyncThunk<
   { rejectValue: string }
 >('products/fetchProducts', async function (_, { rejectWithValue }) {
   return axios
-    .get('https://fakestoreapi.com/productss')
+    .get('https://fakestoreapi.com/products')
     .then((res) => res.data)
     .catch((err) => rejectWithValue(err.message))
 })
