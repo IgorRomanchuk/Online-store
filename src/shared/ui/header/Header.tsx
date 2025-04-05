@@ -6,6 +6,7 @@ import s from './header.module.scss'
 
 export const Header = () => {
   const count = useAppSelector((state) => state.cart.cart)
+
   const active = useAppSelector((state) => state.navigation.nav)
 
   const navigate = useNavigate()
@@ -14,12 +15,7 @@ export const Header = () => {
     <header className={s.header}>
       <div className={s.container}>
         <h1 className={s.title}>
-          <button
-            className={s.button}
-            onClick={() => {
-              navigate('/home')
-            }}
-          >
+          <button className={s.button} onClick={() => navigate('/home')}>
             OnlineStore
           </button>
         </h1>
