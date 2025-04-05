@@ -1,0 +1,25 @@
+.changeCountButtons {
+  display: flex;
+  align-items: center;
+
+  * {
+    padding: 10px;
+  }
+
+  svg {
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+
+    &:hover {
+      color: rgb(247, 179, 96);
+    }
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .changeCountButtons {
+    margin: 0 auto;
+  }
+}

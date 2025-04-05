@@ -4,16 +4,17 @@
   background-color: rgb(255 255 255);
   border-radius: 15px;
   margin-bottom: 20px;
+  padding: 20px;
 }
 
 .box {
   display: flex;
   justify-content: space-between;
   flex-direction: column;
+  height: 100%;
 }
 
 .imageContainer {
-  padding: 20px;
   text-align: center;
   cursor: pointer;
 }
@@ -36,24 +37,8 @@
   }
 }
 
-.changeCountButtons {
-  display: flex;
-  align-items: center;
-
-  * {
-    padding: 10px;
-  }
-
-  svg {
-    cursor: pointer;
-    width: 40px;
-    height: 40px;
-    padding: 0;
-
-    &:hover {
-      color: rgb(247, 179, 96);
-    }
-  }
+.rateTitle {
+  margin-left: 5px;
 }
 
 .purchaseCard {
@@ -91,6 +76,14 @@
   font-size: 18px;
 }
 
+.row {
+  flex-direction: row;
+}
+
+.column {
+  flex-direction: column;
+}
+
 @media screen and (max-width: 1250px) {
   .title {
     width: 290px;
@@ -121,10 +114,6 @@
 
   .price {
     margin: 10px auto;
-  }
-
-  .changeCountButtons {
-    margin: 0 auto;
   }
 }
 
