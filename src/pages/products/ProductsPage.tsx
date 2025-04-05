@@ -96,7 +96,7 @@ export const ProductsPage = () => {
                     <p
                       onClick={() => {
                         dispatch(selectProduct(item))
-                        navigate(`./${item.id}`)
+                        navigate(`/${item.id}`)
                       }}
                       className={s.title}
                     >

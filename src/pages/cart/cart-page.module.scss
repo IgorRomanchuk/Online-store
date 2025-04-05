@@ -1,10 +1,11 @@
 .container {
   max-width: 1280px;
+  width: 100%;
   min-height: calc(100vh - 86px - 76px - 20px);
   margin: 0  auto;
   display: flex;
   justify-content: space-between;
-  gap: 20px;
+  gap: 120px;
   text-align: left;
 }
 
@@ -17,13 +18,15 @@
 @media screen and (max-width: 1250px) {
   .container {
     max-width: 1100px;
+    gap: 20px;
   }
 }
 
 @media screen and (max-width: 1000px) {
   .container {
     max-width: 800px;
-    flex-direction: column;
+    flex-direction: column-reverse;
+    justify-content: start;
     align-items: center;
   }
 }

@@ -1,0 +1,57 @@
+.titleContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.title {
+  font-size: 74px;
+  font-weight: 900;
+  margin: 0;
+  text-align: left;
+}
+
+.button {
+  font-size: 35px;
+  font-weight: 800;
+  width: 300px;
+  padding: 10px 0;
+  background-color: rgb(255 160 44);
+  border-radius: 10px;
+  color: white;
+  margin-right: auto;
+  cursor: pointer;
+
+  &:hover {
+    background-color: rgb(247, 179, 96);
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .title {
+    text-align: center;
+    margin: 15px 0;
+  }
+
+  .button {
+    margin: 0 auto;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .title {
+    font-size: 54px;
+  }
+}
+
+@media screen and (max-width: 430px) {
+  .button {
+    max-width: 200px;
+    font-size: 30px;
+  }
+
+  .title {
+    font-size: 44px;
+    font-weight: 900;
+  }
+}

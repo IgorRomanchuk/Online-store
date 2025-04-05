@@ -1,10 +1,12 @@
 import { changeCount, removeProduct } from '@app/store/cartSlice'
+import { selectProduct } from '@app/store/productsSlice'
 import AddCircleIcon from '@mui/icons-material/AddCircle'
 import HighlightOffIcon from '@mui/icons-material/HighlightOff'
 import RemoveCircleIcon from '@mui/icons-material/RemoveCircle'
 import { useAppDispatch } from '@shared/hooks/useAppDispatch'
 import { ProductModel } from '@shared/models/product.model'
 import { FC } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 import s from './product-card.module.scss'
 
@@ -17,13 +19,22 @@ export const ProductCard: FC<Props> = ({ product }) => {
 
   const dispatch = useAppDispatch()
 
+  const navigate = useNavigate()
+
+  const navigateToProduct = () => {
+    dispatch(selectProduct(product))
+    navigate(`/products/${id}`)
+  }
+
   return (
     <div className={s.container}>
-      <div className={s.imageContainer}>
+      <div onClick={navigateToProduct} className={s.imageContainer}>
         <img src={image} alt={title} height={200} width={150} />
       </div>
       <div className={s.box}>
-        <h3 className={s.title}>{title}</h3>
+        <h3 onClick={navigateToProduct} className={s.title}>
+          {title}
+        </h3>
         <p className={s.price}>{`${price} $`}</p>
         <div className={s.changeCountButtons}>
           <RemoveCircleIcon

@@ -1,5 +1,5 @@
-import SliderNextArrow from 'features/home/SliderNextArrow'
-import SliderPrevArrow from 'features/home/SliderPrevArrow'
+import SliderNextArrow from 'features/home/HomeSlider/SliderNextArrow'
+import SliderPrevArrow from 'features/home/HomeSlider/SliderPrevArrow'
 
 export const sliderSettings = {
   arrows: false,

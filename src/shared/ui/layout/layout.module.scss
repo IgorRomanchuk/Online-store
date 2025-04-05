@@ -6,5 +6,13 @@
   min-height: calc(100vh - 86px - 76px - 20px);
   position: relative;
   padding: 10px;
+  display: flex;
+  align-items: center;
+}
+
+@media screen and (max-width: 430px) {
+  .main {
+    min-height: calc(100vh - 161px - 76px - 20px);
+  }
 }
 

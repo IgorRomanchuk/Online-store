@@ -12,11 +12,9 @@
   .slick-list {
     border-radius: 20px;
   }
-  .slick-track {
+
+  .slick-slide.slick-active.slick-current {
     height: 400px;
-  }
-  .slick-slide {
-    height: 400px !important;
   }
 }
 
@@ -40,14 +38,12 @@
 
 @media screen and (max-width: 400px) {
   .container, .image {
-    height: 250px;
+    height: 200px;
   }
+
   :global {
-    .slick-track {
-      height: 250px;
-    }
-    .slick-slide {
-      height: 250px !important;
+    .slick-slide.slick-active.slick-current {
+      height: 200px;
     }
   }
 }

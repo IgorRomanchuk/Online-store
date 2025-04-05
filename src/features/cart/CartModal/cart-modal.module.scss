@@ -6,7 +6,7 @@
   width: 400px;
   background-color: white;
   border-radius: 15px;
-  box-shadow: 0px 11px 15px -7px rgba(0, 0, 0, 0.2), 0px 24px 38px 3px rgba(0, 0, 0, 0.14), 0px 9px 46px 8px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 11px 15px -7px rgba(0, 0, 0, 0.2), 0px 24px 38px 3px rgba(0, 0, 0, 0.14), 0px 9px 46px 8px rgba(0, 0, 0, 0.12);
   padding: 24px;
   text-align: center;
 }
@@ -26,33 +26,14 @@
   cursor: pointer;
   font-size: 20px;
   font-weight: 600;
-  width: 400px;
+  width: 80%;
   padding: 10px 0;
   background-color: rgb(255 160 44);
   border-radius: 10px;
   color: white;
-  margin: 20px;
+  margin: 20px 0;
 
   &:hover {
     background-color: rgb(247, 179, 96);
-  }
-}
-
-@media screen and (max-width: 650px) {
-  .purchaseButton {
-    max-width: 400px;
-    width: 100%;
-  }
-}
-
-@media screen and (max-width: 450px) {
-  .purchaseButton {
-    width: 250px;
-  }
-}
-
-@media screen and (max-width: 450px) {
-  .purchaseButton {
-    width: 150px;
   }
 }

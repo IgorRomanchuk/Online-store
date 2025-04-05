@@ -15,6 +15,7 @@
 .imageContainer {
   padding: 20px;
   text-align: center;
+  cursor: pointer;
 }
 
 .title, .price {
@@ -27,8 +28,12 @@
 }
 
 .title {
-  width: 330px;
   margin-top: 20px;
+  cursor: pointer;
+
+  &:hover {
+    color: rgb(79, 181, 224);
+  }
 }
 
 .changeCountButtons {
