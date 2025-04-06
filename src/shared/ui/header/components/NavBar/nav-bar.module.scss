@@ -1,0 +1,32 @@
+.navigation {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+
+  li {
+    color: white;
+    list-style: none;
+    margin-right: 1rem;
+    cursor: pointer;
+    font-weight: 600;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    button {
+      cursor: pointer;
+    }
+  }
+}
+
+@media screen and (max-width: 430px) {
+  .navigation {
+    margin-bottom: 25px;
+
+    li {
+      font-size: 20px;
+    }
+  }
+}

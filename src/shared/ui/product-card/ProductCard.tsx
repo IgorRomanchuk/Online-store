@@ -5,11 +5,11 @@ import HighlightOffIcon from '@mui/icons-material/HighlightOff'
 import { useAppDispatch } from '@shared/hooks/useAppDispatch'
 import { ProductModel } from '@shared/models/product.model'
 import AddItemButton from '@shared/ui/add-item-button'
+import { ChangeCountButtons } from '@shared/ui/product-card/change-count-buttons/ChangeCountButtons'
 import { FC, ReactNode } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Ratings from 'shared/ui/rating'
 
-import { ChangeCountButtons } from './Change-count-buttons/ChangeCountButtons'
 import s from './product-card.module.scss'
 
 interface Props {

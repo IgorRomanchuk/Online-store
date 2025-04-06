@@ -1,14 +1,9 @@
-import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined'
-import { useAppSelector } from '@shared/hooks/useAppSelector'
+import NavBar from '@shared/ui/header/components/NavBar'
 import { useNavigate } from 'react-router-dom'
 
 import s from './header.module.scss'
 
 export const Header = () => {
-  const count = useAppSelector((state) => state.cart.cart)
-
-  const active = useAppSelector((state) => state.navigation.nav)
-
   const navigate = useNavigate()
 
   return (
@@ -19,30 +14,7 @@ export const Header = () => {
             OnlineStore
           </button>
         </h1>
-        <nav>
-          <ul className={s.navigation}>
-            <li style={{ color: `${active === 'home' ? 'black' : 'white'}` }}>
-              <button onClick={() => navigate('/home')}>Home</button>
-            </li>
-            <li
-              style={{ color: `${active === 'products' ? 'black' : 'white'}` }}
-            >
-              <button onClick={() => navigate('/products')}>Products</button>
-            </li>
-            <li className={s.cartContainer} onClick={() => navigate('/cart')}>
-              <button>
-                <ShoppingCartOutlinedIcon
-                  style={{
-                    color: `${active === 'cart' ? 'black' : 'white'}`,
-                  }}
-                />
-              </button>
-              {count.length > 0 && (
-                <div className={s.countProduct}>{count.length}</div>
-              )}
-            </li>
-          </ul>
-        </nav>
+        <NavBar />
       </div>
     </header>
   )
