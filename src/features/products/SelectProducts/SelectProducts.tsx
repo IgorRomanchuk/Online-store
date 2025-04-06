@@ -1,4 +1,4 @@
-import { SelectOptionsModel } from '@entities/products/models/get-select-options.model'
+import { SelectOptionsModel } from '@entities/products/models/select-options.model'
 import { getSelectOptions } from '@entities/products/utils/get-select-options'
 import Box from '@mui/material/Box'
 import FormControl from '@mui/material/FormControl'

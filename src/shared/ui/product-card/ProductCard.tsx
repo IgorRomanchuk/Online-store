@@ -1,13 +1,13 @@
-import { changeCount, removeProduct } from '@app/store/cartSlice'
+import { removeProduct } from '@app/store/cartSlice'
 import { addProduct } from '@app/store/cartSlice'
 import { selectProduct } from '@app/store/productsSlice'
 import HighlightOffIcon from '@mui/icons-material/HighlightOff'
 import { useAppDispatch } from '@shared/hooks/useAppDispatch'
 import { ProductModel } from '@shared/models/product.model'
 import AddItemButton from '@shared/ui/add-item-button'
-import Ratings from '@shared/ui/product-card/Ratings'
-import { FC } from 'react'
+import { FC, ReactNode } from 'react'
 import { useNavigate } from 'react-router-dom'
+import Ratings from 'shared/ui/rating'
 
 import { ChangeCountButtons } from './Change-count-buttons/ChangeCountButtons'
 import s from './product-card.module.scss'
@@ -15,19 +15,29 @@ import s from './product-card.module.scss'
 interface Props {
   product: ProductModel
   horizontal?: boolean
+  body?: ReactNode
   rating?: boolean
   closable?: boolean
   countButtons?: boolean
   addProductButton?: boolean
+  imageHeight?: number
+  imageWidth?: number
+  description?: boolean
+  ratingSize?: number
 }
 
 export const ProductCard: FC<Props> = ({
   product,
+  body,
   horizontal = false,
   rating = false,
   closable = false,
   countButtons = false,
   addProductButton = false,
+  description = false,
+  imageHeight = 200,
+  imageWidth = 150,
+  ratingSize = 20,
 }) => {
   const { image, title, price, id, count } = product
 
@@ -47,25 +57,45 @@ export const ProductCard: FC<Props> = ({
         style={{ paddingRight: `${horizontal ? '20px' : '0'}` }}
         className={s.imageContainer}
       >
-        <img src={image} alt={title} height={200} width={150} />
+        <img src={image} alt={title} height={imageHeight} width={imageWidth} />
       </div>
-      {rating && product.rating.rate && (
-        <Ratings rating={product.rating.rate} />
-      )}
-      <div className={s.box}>
-        <h3 onClick={navigateToProduct} className={s.title}>
-          {title}
-        </h3>
-        <p className={s.price}>{`${price} $`}</p>
-        {countButtons && count && <ChangeCountButtons id={id} count={count} />}
-      </div>
-      {closable && (
-        <button className={s.closeButton}>
-          <HighlightOffIcon onClick={() => dispatch(removeProduct({ id }))} />
-        </button>
-      )}
-      {addProductButton && (
-        <AddItemButton onAddItem={() => dispatch(addProduct(product))} />
+
+      {body ? (
+        body
+      ) : (
+        <>
+          <div className={s.box}>
+            <div>
+              {rating && (
+                <Ratings rating={product.rating.rate} ratingSize={ratingSize} />
+              )}
+              <h3 onClick={navigateToProduct} className={s.title}>
+                {title}
+              </h3>
+              {description && (
+                <p className={s.description}>{product.description}</p>
+              )}
+            </div>
+            <div>
+              <p className={s.price}>{`${price} $`}</p>
+              {countButtons && count && (
+                <ChangeCountButtons id={id} count={count} />
+              )}
+              {addProductButton && (
+                <AddItemButton
+                  onAddItem={() => dispatch(addProduct(product))}
+                />
+              )}
+            </div>
+          </div>
+          {closable && (
+            <button className={s.closeButton}>
+              <HighlightOffIcon
+                onClick={() => dispatch(removeProduct({ id }))}
+              />
+            </button>
+          )}
+        </>
       )}
     </div>
   )

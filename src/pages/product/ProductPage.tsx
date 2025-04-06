@@ -1,11 +1,11 @@
-import { addProduct } from '@app/store/cartSlice'
 import { selectProduct } from '@app/store/productsSlice'
 import { fetchProducts } from '@app/store/productsSlice'
+import { ProductBody } from '@features/product/ProductBody/ProductBody'
 import { useAppDispatch } from '@shared/hooks/useAppDispatch'
 import { useAppSelector } from '@shared/hooks/useAppSelector'
 import { ProductModel } from '@shared/models/product.model'
+import ProductCard from '@shared/ui/product-card'
 import { useEffect } from 'react'
-import Ratings from 'react-ratings-declarative'
 import { useParams } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
 
@@ -20,17 +20,22 @@ export const ProductPage = () => {
 
   const dispatch = useAppDispatch()
 
+  const getProduct = () => {
+    const index = products.findIndex(
+      (product: ProductModel) => productId && product.id === +productId,
+    )
+    if (index === -1) {
+      navigate('/not-found')
+    } else {
+      dispatch(selectProduct(products[index]))
+    }
+  }
+
   useEffect(() => {
-    if (!products.length) dispatch(fetchProducts())
-    if (!product && products.length > 0) {
-      const index = products.findIndex(
-        (product: ProductModel) => productId && product.id === +productId,
-      )
-      if (index === -1) {
-        navigate('/not-found')
-      } else {
-        dispatch(selectProduct(products[index]))
-      }
+    if (!products.length) {
+      dispatch(fetchProducts())
+    } else {
+      getProduct()
     }
   }, [products])
 
@@ -38,55 +43,17 @@ export const ProductPage = () => {
     <>
       {product && (
         <div className={s.container}>
-          <button
-            className={`${s.button} ${s.back}`}
-            onClick={() => navigate('../products')}
-          >
+          <button className={s.button} onClick={() => navigate('/products')}>
             Back to all products
           </button>
 
-          <div className={s.cardProduct}>
-            <div className={s.imageContainer}>
-              <img
-                src={product.image}
-                alt={product.title}
-                height={400}
-                width={350}
-              />
-            </div>
-            <div
-              style={{
-                textAlign: 'left',
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'space-between',
-              }}
-            >
-              <div>
-                <p className={s.title}>{product.title}</p>
-                <p className={s.description}>{product.description}</p>
-
-                <Ratings
-                  rating={product.rating.rate}
-                  widgetRatedColors="rgb(255 160 44)"
-                  widgetSpacings="0"
-                >
-                  {[...Array(5)].map((_, i) => (
-                    <Ratings.Widget key={i} widgetDimension="30px" />
-                  ))}
-                </Ratings>
-                <span style={{ marginLeft: '5px' }}>{product.rating.rate}</span>
-                <p className={s.price}>{`${product.price} $`}</p>
-              </div>
-
-              <button
-                onClick={() => dispatch(addProduct(product))}
-                className={s.button}
-              >
-                Add to cart
-              </button>
-            </div>
-          </div>
+          <ProductCard
+            imageHeight={400}
+            imageWidth={350}
+            product={product}
+            horizontal
+            body={<ProductBody product={product} />}
+          />
         </div>
       )}
     </>

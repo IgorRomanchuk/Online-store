@@ -3,7 +3,7 @@ import HomePage from '@pages/home'
 import NotFoundPage from '@pages/not-found'
 import ProductPage from '@pages/product'
 import ProductsPage from '@pages/products'
-import Layout from '@shared/ui/layout/Layout'
+import Layout from '@shared/ui/layout'
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 
 const AppRoutes = () => (

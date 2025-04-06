@@ -37,6 +37,11 @@
   }
 }
 
+.description {
+  text-align: left;
+  font-size: 20px;
+}
+
 .rateTitle {
   margin-left: 5px;
 }
@@ -82,12 +87,6 @@
 
 .column {
   flex-direction: column;
-}
-
-@media screen and (max-width: 1250px) {
-  .title {
-    width: 290px;
-  }
 }
 
 @media screen and (max-width: 650px) {

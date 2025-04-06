@@ -3,7 +3,7 @@ import { setActiveNav } from '@app/store/navSlice'
 import { useAppDispatch } from '@shared/hooks/useAppDispatch'
 import { useAppSelector } from '@shared/hooks/useAppSelector'
 import { ProductModel } from '@shared/models/product.model'
-import { ProductCard } from '@shared/ui/product-card/ProductCard'
+import ProductCard from '@shared/ui/product-card'
 import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 

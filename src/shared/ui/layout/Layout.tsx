@@ -4,7 +4,7 @@ import { Outlet } from 'react-router-dom'
 
 import s from './layout.module.scss'
 
-const Layout = () => {
+export const Layout = () => {
   return (
     <>
       <Header />
@@ -15,5 +15,3 @@ const Layout = () => {
     </>
   )
 }
-
-export default Layout
