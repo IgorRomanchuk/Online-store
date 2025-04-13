@@ -1,7 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-
-import { CartState } from '../../shared/models/cart.model'
-import { ProductModel } from '../../shared/models/product.model'
+import { CartState } from '@shared/models/cart.model'
+import { ProductModel } from '@shared/models/product.model'
 
 const initialState: CartState = {
   cart: JSON.parse(localStorage.getItem('cart') || '[]') || [],
@@ -14,42 +13,36 @@ const cartSlice = createSlice({
   reducers: {
     sumProducts(state) {
       state.sum = state.cart.reduce(
-        (acc: number, value: ProductModel) => acc + value.price * value.count!,
+        (acc: number, value: Required<ProductModel>) =>
+          acc + value.price * value.count,
         0,
       )
     },
-    addProduct(state, action: PayloadAction<ProductModel>) {
-      const index = state.cart.findIndex((item: ProductModel) => {
-        if (item.id === action.payload.id) {
-          return true
-        }
-      })
+    addProduct(state, action: PayloadAction<Required<ProductModel>>) {
+      const index = state.cart.findIndex(
+        (item: Required<ProductModel>) => item.id === action.payload.id,
+      )
       if (index === -1) {
         state.cart.push({ ...action.payload, count: 1 })
       } else {
-        state.cart[index].count!++
+        state.cart[index].count++
       }
       localStorage.setItem('cart', JSON.stringify(state.cart))
     },
     removeProduct(state, action: PayloadAction<{ id: number }>) {
-      const index = state.cart.findIndex((item: ProductModel) => {
-        if (item.id === action.payload.id) {
-          return true
-        }
-      })
-      state.cart.splice(index, 1)
+      state.cart = state.cart.filter(
+        (product) => product.id !== action.payload.id,
+      )
       localStorage.setItem('cart', JSON.stringify(state.cart))
     },
     changeCount(state, action: PayloadAction<{ type: string; id: number }>) {
-      const index = state.cart.findIndex((item: ProductModel) => {
-        if (item.id === action.payload.id) {
-          return true
-        }
-      })
+      const index = state.cart.findIndex(
+        (item: Required<ProductModel>) => item.id === action.payload.id,
+      )
       if (action.payload.type === 'add') {
-        state.cart[index].count!++
+        state.cart[index].count++
       } else {
-        state.cart[index].count!--
+        state.cart[index].count--
         if (!state.cart[index].count) {
           state.cart.splice(index, 1)
         }

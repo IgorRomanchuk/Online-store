@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
-type Nav = {
+interface Nav {
   nav: string | null
 }
 
