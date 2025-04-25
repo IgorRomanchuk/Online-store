@@ -1,7 +1,8 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { ProductsApi } from '@shared/api/products.api'
+import { FetchStatus } from '@shared/models/fetchStatus.enum'
 import { ProductModel } from '@shared/models/product.model'
 import { ProductsState } from '@shared/models/product.model'
-import axios from 'axios'
 
 const initialState: ProductsState = {
   products: [],
@@ -18,10 +19,13 @@ export const fetchProducts = createAsyncThunk<
   undefined,
   { rejectValue: string }
 >('products/fetchProducts', async function (_, { rejectWithValue }) {
-  return axios
-    .get('https://fakestoreapi.com/products')
-    .then((res) => res.data)
-    .catch((err) => rejectWithValue(err.message))
+  try {
+    return await ProductsApi.get()
+  } catch (err: any) {
+    return rejectWithValue(
+      err instanceof Error ? err.message : 'Failed to fetch products',
+    )
+  }
 })
 
 const productsSlice = createSlice({
@@ -82,14 +86,14 @@ const productsSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(fetchProducts.pending, (state) => {
-        state.status = 'loading'
+        state.status = FetchStatus.LOADING
         state.error = null
       })
       .addCase(fetchProducts.fulfilled, (state, action) => {
-        state.status = 'resolved'
+        state.status = FetchStatus.RESOLVED
         state.products = action.payload
         state.cloneProducts = action.payload
-        // add category
+
         state.products.map((item) => {
           if (!state.category.includes(item.category)) {
             state.category.push(item.category)
@@ -97,7 +101,7 @@ const productsSlice = createSlice({
         })
       })
       .addCase(fetchProducts.rejected, (state, action) => {
-        state.status = 'rejected'
+        state.status = FetchStatus.REJECTED
         state.error = action.payload as string
       })
   },

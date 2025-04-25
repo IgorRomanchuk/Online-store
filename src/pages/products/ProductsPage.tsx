@@ -5,6 +5,7 @@ import Products from '@features/products/Proucts'
 import LinearProgress from '@mui/material/LinearProgress'
 import { useAppDispatch } from '@shared/hooks/useAppDispatch'
 import { useAppSelector } from '@shared/hooks/useAppSelector'
+import { FetchStatus } from '@shared/models/fetchStatus.enum'
 import SelectProducts from 'features/products/SelectProducts'
 import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
@@ -27,7 +28,7 @@ export const ProductsPage = () => {
     return <h1 style={{ marginTop: '100px' }}>An error occurred: {error}</h1>
   }
 
-  if (status === 'loading') {
+  if (status === FetchStatus.LOADING) {
     return <LinearProgress className={s.linearProgress} />
   }
 
