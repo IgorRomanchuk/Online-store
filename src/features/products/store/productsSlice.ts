@@ -1,8 +1,8 @@
+import { ProductsState } from '@features/products/models/productsState.model'
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { ProductsApi } from '@shared/api/products.api'
 import { FetchStatus } from '@shared/models/fetchStatus.enum'
 import { ProductModel } from '@shared/models/product.model'
-import { ProductsState } from '@shared/models/product.model'
 
 const initialState: ProductsState = {
   products: [],
@@ -21,7 +21,7 @@ export const fetchProducts = createAsyncThunk<
 >('products/fetchProducts', async function (_, { rejectWithValue }) {
   try {
     return await ProductsApi.get()
-  } catch (err: any) {
+  } catch (err) {
     return rejectWithValue(
       err instanceof Error ? err.message : 'Failed to fetch products',
     )

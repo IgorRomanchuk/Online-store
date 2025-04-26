@@ -1,4 +1,4 @@
-import { addProduct } from '@app/store/cartSlice'
+import { addProduct } from '@features/cart/store/cartSlice'
 import { useAppDispatch } from '@shared/hooks/useAppDispatch'
 import { ProductModel } from '@shared/models/product.model'
 import AddItemButton from '@shared/ui/add-item-button'
@@ -15,6 +15,7 @@ export const ProductBody: FC<Props> = ({ product }) => {
   const dispatch = useAppDispatch()
 
   const { title, description, rating, price } = product
+
   return (
     <div>
       <p className={s.title}>{title}</p>

@@ -1,4 +1,4 @@
-import { changeCount } from '@app/store/cartSlice'
+import { changeCount } from '@features/cart/store/cartSlice'
 import AddCircleIcon from '@mui/icons-material/AddCircle'
 import RemoveCircleIcon from '@mui/icons-material/RemoveCircle'
 import { useAppDispatch } from '@shared/hooks/useAppDispatch'

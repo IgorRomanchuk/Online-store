@@ -20,8 +20,9 @@ export const getNavItems = (): GetNavItemsModel[] => {
       title: 'Products',
     },
     {
+      value: 'cart',
       node: (
-        <li className={s.cartContainer}>
+        <li className={s.cartContainer} key="cart">
           <button onClick={() => navigate('/cart')}>
             <ShoppingCartOutlinedIcon
               style={{

@@ -1,9 +1,9 @@
-import { selectProduct } from '@app/store/productsSlice'
-import { fetchProducts } from '@app/store/productsSlice'
-import { ProductBody } from '@features/product/ProductBody/ProductBody'
+import { ProductBody } from '@features/product/components/ProductBody/ProductBody'
+import { fetchProduct } from '@features/product/store/productSlice'
+import LinearProgress from '@mui/material/LinearProgress'
 import { useAppDispatch } from '@shared/hooks/useAppDispatch'
 import { useAppSelector } from '@shared/hooks/useAppSelector'
-import { ProductModel } from '@shared/models/product.model'
+import { FetchStatus } from '@shared/models/fetchStatus.enum'
 import ProductCard from '@shared/ui/product-card'
 import { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
@@ -16,33 +16,22 @@ export const ProductPage = () => {
 
   const { productId } = useParams()
 
-  const { product, products } = useAppSelector((state) => state.products)
+  const { product, status } = useAppSelector((state) => state.product)
 
   const dispatch = useAppDispatch()
 
-  const getProduct = () => {
-    const index = products.findIndex(
-      (product: ProductModel) => productId && product.id === +productId,
-    )
-    if (index === -1) {
-      navigate('/not-found')
-    } else {
-      dispatch(selectProduct(products[index]))
-    }
+  useEffect(() => {
+    dispatch(fetchProduct(Number(productId)))
+  }, [])
+
+  if (status === FetchStatus.LOADING) {
+    return <LinearProgress className={s.linearProgress} />
   }
 
-  useEffect(() => {
-    if (!products.length) {
-      dispatch(fetchProducts())
-    } else {
-      getProduct()
-    }
-  }, [products])
-
   return (
-    <>
-      {product && (
-        <div className={s.container}>
+    <div className={s.container}>
+      {Object.keys(product).length && (
+        <>
           <button className={s.button} onClick={() => navigate('/products')}>
             Back to all products
           </button>
@@ -54,8 +43,8 @@ export const ProductPage = () => {
             horizontal
             body={<ProductBody product={product} />}
           />
-        </div>
+        </>
       )}
-    </>
+    </div>
   )
 }

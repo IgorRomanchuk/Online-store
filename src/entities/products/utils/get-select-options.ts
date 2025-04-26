@@ -1,8 +1,8 @@
+import { SelectOptionsModel } from '@entities/products/models/select-options.model'
 import {
   filterProductsByPrice,
   filterProductsByRating,
-} from '@app/store/productsSlice'
-import { SelectOptionsModel } from '@entities/products/models/select-options.model'
+} from '@features/products/store/productsSlice'
 import { useDispatch } from 'react-redux'
 
 export const getSelectOptions = (): SelectOptionsModel[] => {

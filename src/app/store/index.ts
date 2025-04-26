@@ -1,12 +1,13 @@
+import navSlice from '@app/store/navSlice'
+import cartSlice from '@features/cart/store/cartSlice'
+import productSlice from '@features/product/store/productSlice'
+import productsSlice from '@features/products/store/productsSlice'
 import { configureStore } from '@reduxjs/toolkit'
-
-import cartSlice from './cartSlice'
-import navSlice from './navSlice'
-import productsSlice from './productsSlice'
 
 const store = configureStore({
   reducer: {
     products: productsSlice,
+    product: productSlice,
     cart: cartSlice,
     navigation: navSlice,
   },

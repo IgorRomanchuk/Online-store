@@ -18,7 +18,7 @@ const cartSlice = createSlice({
         0,
       )
     },
-    addProduct(state, action: PayloadAction<Required<ProductModel>>) {
+    addProduct(state, action: PayloadAction<ProductModel>) {
       const index = state.cart.findIndex(
         (item: Required<ProductModel>) => item.id === action.payload.id,
       )

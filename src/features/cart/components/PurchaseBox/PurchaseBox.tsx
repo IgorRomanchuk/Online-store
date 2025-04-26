@@ -1,4 +1,4 @@
-import CartModal from '@features/cart/CartModal'
+import CartModal from '@features/cart/components/CartModal'
 import { useAppSelector } from '@shared/hooks/useAppSelector'
 
 import s from './purchase-box.module.scss'

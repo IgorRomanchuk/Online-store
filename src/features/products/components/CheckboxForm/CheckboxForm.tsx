@@ -1,7 +1,7 @@
 import {
   addSelectedCategory,
   removeSelectedCategory,
-} from '@app/store/productsSlice'
+} from '@features/products/store/productsSlice'
 import { Checkbox, FormControlLabel, FormGroup } from '@mui/material'
 import { useAppDispatch } from '@shared/hooks/useAppDispatch'
 import { useAppSelector } from '@shared/hooks/useAppSelector'

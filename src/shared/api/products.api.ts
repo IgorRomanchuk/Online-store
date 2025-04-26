@@ -7,4 +7,11 @@ export const ProductsApi = {
       await axios.get<ProductModel[]>('https://fakestoreapi.com/products')
     ).data
   },
+  getProductById: async (productId: number): Promise<ProductModel> => {
+    return (
+      await axios.get<ProductModel>(
+        `https://fakestoreapi.com/products/${productId}`,
+      )
+    ).data
+  },
 }

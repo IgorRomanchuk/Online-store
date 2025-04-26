@@ -1,4 +1,4 @@
-import { refreshCart } from '@app/store/cartSlice'
+import { refreshCart } from '@features/cart/store/cartSlice'
 import Box from '@mui/material/Box'
 import Modal from '@mui/material/Modal'
 import Typography from '@mui/material/Typography'

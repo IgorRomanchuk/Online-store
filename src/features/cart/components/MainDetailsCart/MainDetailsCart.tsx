@@ -1,5 +1,5 @@
-import { sumProducts } from '@app/store/cartSlice'
 import { setActiveNav } from '@app/store/navSlice'
+import { sumProducts } from '@features/cart/store/cartSlice'
 import { useAppDispatch } from '@shared/hooks/useAppDispatch'
 import { useAppSelector } from '@shared/hooks/useAppSelector'
 import { ProductModel } from '@shared/models/product.model'
