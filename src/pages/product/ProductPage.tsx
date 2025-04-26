@@ -16,13 +16,17 @@ export const ProductPage = () => {
 
   const { productId } = useParams()
 
-  const { product, status } = useAppSelector((state) => state.product)
+  const { product, status, error } = useAppSelector((state) => state.product)
 
   const dispatch = useAppDispatch()
 
   useEffect(() => {
     dispatch(fetchProduct(Number(productId)))
   }, [])
+
+  if (error) {
+    return <h1 style={{ marginTop: '100px' }}>An error occurred: {error}</h1>
+  }
 
   if (status === FetchStatus.LOADING) {
     return <LinearProgress className={s.linearProgress} />
